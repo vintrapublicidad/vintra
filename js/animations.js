@@ -43,10 +43,16 @@
       '-=0.6'
     );
 
+    heroTl.fromTo('.hero-video-portal', 
+      { opacity: 0, y: 30, scale: 0.96 }, 
+      { opacity: 1, y: 0, scale: 1, duration: 0.9, ease: 'power3.out' }, 
+      '-=0.6'
+    );
+
     heroTl.fromTo('.hero-actions-group', 
       { opacity: 0, y: 25 }, 
       { opacity: 1, y: 0, duration: 0.8 }, 
-      '-=0.6'
+      '-=0.5'
     );
 
     heroTl.fromTo('.hero-stats-row', 

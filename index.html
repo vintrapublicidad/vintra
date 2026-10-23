@@ -175,65 +175,74 @@
        ========================================================================= -->
   <section id="hero" class="relative min-h-[100svh] flex flex-col justify-center items-center text-center px-4 sm:px-6 lg:px-8 pt-24 pb-14 overflow-hidden">
     
-    <!-- Fondo: Video de la espiral con contraste cinemático -->
-    <div class="absolute inset-0 w-full h-full overflow-hidden pointer-events-none -z-10 bg-[#0A090D]">
-      <video id="hero-video" autoplay muted loop playsinline preload="auto" class="w-full h-full object-cover opacity-65 scale-105 filter brightness-105 contrast-110 will-change-transform">
-        <source src="recursos/Logo_Espiral_vintra.mp4" type="video/mp4">
-        <source src="recursos/video-hero.mp4" type="video/mp4">
-      </video>
-
-      <!-- Scrims cinemáticos oscuros -->
-      <div class="absolute inset-0 bg-gradient-to-b from-[#0A090D]/80 via-[#0A090D]/50 to-[#0A090D]"></div>
-      <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_20%,#0A090D_90%)]"></div>
-
-      <!-- Fallback -->
-      <div id="hero-fallback-glow" class="hidden absolute inset-0 bg-[#0A090D]">
-        <div class="absolute inset-0 glow-purple opacity-40"></div>
-        <div class="absolute inset-0 glow-blue opacity-35"></div>
-      </div>
-    </div>
+    <!-- Scrims y gradiente ambiental tenue de fondo -->
+    <div class="absolute inset-0 bg-[#0A090D] -z-20"></div>
+    <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[650px] h-[650px] glow-purple rounded-full blur-[130px] pointer-events-none -z-10 opacity-30"></div>
 
     <!-- Contenido Hero -->
     <div class="w-full max-w-5xl mx-auto flex flex-col items-center my-auto z-10">
       
       <!-- Pill Badge Editorial -->
-      <div class="hero-badge-pill inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-white/[0.04] border border-white/10 backdrop-blur-md mb-6 sm:mb-8">
+      <div class="hero-badge-pill inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-white/[0.04] border border-white/10 backdrop-blur-md mb-6 sm:mb-7">
         <span class="w-2 h-2 rounded-full bg-[#D8CFBC] shadow-[0_0_8px_#D8CFBC]"></span>
         <span class="font-mono text-[11px] sm:text-xs uppercase tracking-widest text-[#D8CFBC]">
           ESTUDIO DIGITAL // TRES SOCIOS TECNOLÓGICOS
         </span>
       </div>
 
-      <!-- TÍTULO MONUMENTAL (Estilo Marcus Lorenzet con Máscara Reveal) -->
-      <h1 class="font-editorial font-extrabold uppercase text-[clamp(2.4rem,9vw,6.5rem)] tracking-tight leading-[0.92] text-[#EAE5D9] mb-6">
+      <!-- TÍTULO MONUMENTAL (Con animación de color que recorre las letras) -->
+      <h1 class="font-editorial font-extrabold uppercase text-[clamp(1.85rem,7.5vw,6rem)] tracking-tight leading-[0.94] text-[#EAE5D9] mb-5">
         <span class="block overflow-hidden">
-          <span class="hero-mask-line block">TECNOLOGÍA QUE</span>
+          <span class="hero-mask-line block shimmer-title">TECNOLOGÍA QUE</span>
         </span>
-        <span class="block overflow-hidden">
-          <span class="hero-mask-line block text-[#D8CFBC] flex items-center justify-center gap-2 sm:gap-3">
-            POTENCIA TU MARCA <span class="square-accent"></span>
+        <span class="block overflow-hidden mt-1 sm:mt-2">
+          <span class="hero-mask-line block flex items-center justify-center gap-2 sm:gap-3">
+            <span class="shimmer-accent">POTENCIA TU MARCA</span> <span class="square-accent"></span>
           </span>
         </span>
       </h1>
 
       <!-- SUBTÍTULO -->
-      <p class="hero-sub-p text-sm sm:text-lg md:text-xl text-[#8E897E] font-normal max-w-2xl leading-relaxed mb-9 px-2">
+      <p class="hero-sub-p text-sm sm:text-lg md:text-xl text-[#8E897E] font-normal max-w-2xl leading-relaxed mb-6 sm:mb-8 px-2">
         Diseñamos páginas web y campañas de publicidad que no pasan desapercibidas. Hechas al detalle para marcas que buscan trascender.
       </p>
 
+      <!-- PORTAL CINEMÁTICO DEL VIDEO EN EL HERO (TOTALMENTE VISIBLE, SIN TEXTO ENCIMA) -->
+      <div class="hero-video-portal w-full max-w-2xl mx-auto mb-7 sm:mb-9 relative group px-1 sm:px-0">
+        <div class="hero-video-portal-inner relative w-full aspect-[16/9] sm:aspect-[21/9] rounded-2xl sm:rounded-3xl overflow-hidden bg-[#121017] border border-white/15 shadow-[0_20px_60px_rgba(0,0,0,0.8),0_0_40px_rgba(107,41,165,0.25)]">
+          <video id="hero-portal-video" autoplay muted loop playsinline preload="auto" class="w-full h-full object-cover filter brightness-105 contrast-110">
+            <source src="recursos/Logo_Espiral_vintra.mp4" type="video/mp4">
+            <source src="recursos/video-hero.mp4" type="video/mp4">
+          </video>
+          
+          <!-- Suave scrim perimetral -->
+          <div class="absolute inset-0 bg-gradient-to-t from-[#0A090D]/50 via-transparent to-[#0A090D]/30 pointer-events-none"></div>
+
+          <!-- Badges interactivos en el video -->
+          <div class="absolute top-3 left-4 flex items-center gap-2 px-3 py-1 rounded-full bg-black/60 backdrop-blur-md border border-white/10 text-[10px] font-mono uppercase tracking-wider text-[#D8CFBC]">
+            <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+            <span>VINTRA CORE // ESPIRAL</span>
+          </div>
+
+          <div class="absolute bottom-3 right-4 hidden sm:flex items-center gap-2 px-3 py-1 rounded-full bg-black/60 backdrop-blur-md border border-white/10 text-[10px] font-mono uppercase tracking-wider text-[#8E897E]">
+            <span>SISTEMA DINÁMICO 2026</span>
+          </div>
+        </div>
+      </div>
+
       <!-- BOTONES DE ACCIÓN: Sand Pill + Dark Editorial -->
-      <div class="hero-actions-group flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto px-4 sm:px-0">
-        <a href="#proyectos" class="btn-sand w-full sm:w-auto px-8 sm:px-10 py-4 sm:py-4.5 rounded-full uppercase text-xs sm:text-sm tracking-wider flex items-center justify-center gap-2 shadow-lg">
+      <div class="hero-actions-group flex flex-col sm:flex-row items-center gap-3.5 w-full sm:w-auto px-4 sm:px-0">
+        <a href="#proyectos" class="btn-sand w-full sm:w-auto px-7 sm:px-10 py-3.5 sm:py-4.5 rounded-full uppercase text-xs sm:text-sm tracking-wider flex items-center justify-center gap-2 shadow-lg">
           <span>VER PROYECTOS</span>
           <span class="text-base">&darr;</span>
         </a>
-        <button onclick="openVintraWhatsApp('general')" class="btn-dark-editorial w-full sm:w-auto px-8 sm:px-10 py-4 sm:py-4.5 rounded-full uppercase text-xs sm:text-sm tracking-wider flex items-center justify-center gap-2 font-mono">
+        <button onclick="openVintraWhatsApp('general')" class="btn-dark-editorial w-full sm:w-auto px-7 sm:px-10 py-3.5 sm:py-4.5 rounded-full uppercase text-xs sm:text-sm tracking-wider flex items-center justify-center gap-2 font-mono">
           <span>HABLEMOS DIRECTO</span> &rarr;
         </button>
       </div>
 
       <!-- MÉTRICAS EDITORIALES -->
-      <div class="hero-stats-row grid grid-cols-3 gap-6 sm:gap-12 pt-10 mt-8 border-t border-white/10 w-full max-w-sm sm:max-w-md">
+      <div class="hero-stats-row grid grid-cols-3 gap-4 sm:gap-12 pt-7 mt-6 border-t border-white/10 w-full max-w-sm sm:max-w-md">
         <div class="text-center">
           <span class="block font-editorial font-bold text-3xl sm:text-4xl text-[#EAE5D9] stat-counter" data-target="4">0</span>
           <span class="block font-mono text-[10px] uppercase tracking-widest text-[#8E897E] mt-1">Proyectos</span>
@@ -508,6 +517,22 @@
 
       </div>
 
+      <!-- Card Identidad Visual con el Logo en Colores (recursos/photo_2026-05-30_19-27-06.jpg) -->
+      <div class="mt-8 sm:mt-10 p-6 sm:p-8 rounded-3xl bg-[#121017] border border-white/10 flex flex-col sm:flex-row items-center gap-6 sm:gap-8 hover:border-[#D8CFBC]/30 transition-all">
+        <div class="w-28 h-28 sm:w-36 sm:h-36 rounded-2xl overflow-hidden shrink-0 border border-white/10 shadow-[0_0_35px_rgba(107,41,165,0.4)] relative group">
+          <img src="recursos/photo_2026-05-30_19-27-06.jpg" alt="Vintra Logotipo en Colores" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+        </div>
+        <div class="text-center sm:text-left">
+          <span class="font-mono text-xs uppercase tracking-widest text-[#D8CFBC] block mb-2">[ IDENTIDAD VISUAL & TECNOLOGÍA ]</span>
+          <h3 class="font-editorial font-bold text-xl sm:text-2xl text-white mb-2">
+            La espiral de la innovación constante
+          </h3>
+          <p class="text-sm text-[#8E897E] leading-relaxed">
+            Nuestro imagotipo representa la convergencia entre diseño, desarrollo a medida y expansión publicitaria. Cada punto simboliza una solución orientada a potenciar la presencia de tu marca en el ecosistema digital.
+          </p>
+        </div>
+      </div>
+
     </div>
   </section>
 
@@ -572,6 +597,11 @@
           HABLEMOS DE<br>
           <span class="text-[#D8CFBC] flex items-center justify-center gap-3">TU MARCA <span class="square-accent"></span></span>
         </h2>
+      </div>
+
+      <!-- Emblema de la marca en el Footer (recursos/photo_2026-05-30_19-25-59.jpg) -->
+      <div class="w-20 h-20 sm:w-24 sm:h-24 rounded-full overflow-hidden flex items-center justify-center bg-black/60 border border-white/15 mb-8 shadow-2xl shadow-purple-950/40 hover:scale-105 transition-transform duration-300">
+        <img src="recursos/photo_2026-05-30_19-25-59.jpg" alt="Vintra Emblem" class="w-full h-full object-cover scale-105">
       </div>
 
       <!-- Botón Sand Principal de WhatsApp -->
