@@ -165,3 +165,260 @@ html {
 .wa-btn-glow {
   animation: waPulse 3s infinite ease-in-out;
 }
+
+/* =============================================
+   CUSTOM CURSOR (desktop only)
+   ============================================= */
+@media (pointer: fine) {
+  body { cursor: none; }
+  a, button, [role="button"] { cursor: none; }
+}
+
+.custom-cursor {
+  position: fixed;
+  width: 36px;
+  height: 36px;
+  border: 1.5px solid rgba(168, 85, 247, 0.7);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+  transition: width 0.25s ease, height 0.25s ease, border-color 0.25s ease, background-color 0.25s ease, opacity 0.25s ease;
+  opacity: 0;
+  will-change: transform;
+  backdrop-filter: blur(1px);
+}
+
+.custom-cursor-dot {
+  position: fixed;
+  width: 5px;
+  height: 5px;
+  background: #A855F7;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  transition: opacity 0.25s ease;
+  will-change: transform;
+}
+
+.custom-cursor.active { opacity: 1; }
+.custom-cursor-dot.active { opacity: 1; }
+
+.custom-cursor.hovered {
+  width: 56px;
+  height: 56px;
+  border-color: rgba(168, 85, 247, 0.4);
+  background-color: rgba(107, 41, 165, 0.12);
+}
+
+/* =============================================
+   MARQUEE HORIZONTAL ANIMADO
+   ============================================= */
+@keyframes marqueeScroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marqueeScroll 30s linear infinite;
+}
+
+.marquee-strip:hover .marquee-track {
+  animation-play-state: paused;
+}
+
+/* =============================================
+   HERO STATS FADE-IN
+   ============================================= */
+.hero-stats {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: statsFadeIn 0.8s ease 1.4s forwards;
+}
+
+@keyframes statsFadeIn {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* =============================================
+   FOOTER EDITORIAL HEADLINE
+   ============================================= */
+.footer-line-1,
+.footer-line-2 {
+  display: block;
+  opacity: 0;
+  transform: translateY(60px);
+  transition: opacity 0.8s ease, transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.footer-headline-wrap.in-view .footer-line-1 { opacity: 1; transform: translateY(0); }
+.footer-headline-wrap.in-view .footer-line-2 { opacity: 1; transform: translateY(0); transition-delay: 0.12s; }
+
+/* =============================================
+   HEADER: BORDE GRADIENTE ANIMADO AL SCROLL
+   ============================================= */
+@keyframes gradientShift {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+#main-header.scrolled-header::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, #6B29A5, #3252E5, #A855F7, #6B29A5);
+  background-size: 300% 100%;
+  animation: gradientShift 4s ease infinite;
+}
+
+/* =============================================
+   SHIMMER TEXT ANIMATION (hero title line 1)
+   ============================================= */
+@keyframes shimmer {
+  0%   { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+.shimmer-text {
+  background: linear-gradient(
+    90deg,
+    #ffffff 0%,
+    #ffffff 40%,
+    #A855F7 50%,
+    #ffffff 60%,
+    #ffffff 100%
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmer 4s linear infinite;
+}
+
+/* =============================================
+   PROJECT CARD: CLIP-PATH REVEAL + MOBILE TAP
+   ============================================= */
+.project-card-item {
+  --clip: inset(0 100% 0 0);
+}
+
+.project-card-item.revealed .project-img-inner {
+  animation: clipReveal 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes clipReveal {
+  from { clip-path: inset(0 100% 0 0); }
+  to   { clip-path: inset(0 0% 0 0); }
+}
+
+/* Mobile tap hint on project cards */
+@media (max-width: 639px) {
+  .project-card-item a::after {
+    content: 'Toca para visitar →';
+    position: absolute;
+    bottom: 12px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.7);
+    background: rgba(11, 9, 20, 0.7);
+    backdrop-filter: blur(8px);
+    padding: 6px 14px;
+    border-radius: 999px;
+    border: 1px solid rgba(255,255,255,0.12);
+    pointer-events: none;
+    white-space: nowrap;
+  }
+}
+
+/* =============================================
+   FLOATING AMBIENT SPHERES
+   ============================================= */
+@keyframes floatSphere {
+  0%, 100% { transform: translateY(0px) scale(1); }
+  50%       { transform: translateY(-24px) scale(1.04); }
+}
+
+.glow-purple { animation: floatSphere 8s ease-in-out infinite; }
+.glow-blue   { animation: floatSphere 10s ease-in-out infinite reverse; }
+
+/* =============================================
+   VIDEO SHOWCASE SECTION
+   ============================================= */
+.video-showcase-section {
+  border-top: 1px solid rgba(255,255,255,0.05);
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+
+/* =============================================
+   MOBILE-FIRST GENERAL IMPROVEMENTS
+   ============================================= */
+
+/* Tighter spacing on mobile for sections */
+@media (max-width: 639px) {
+  section {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+  }
+
+  /* Hero metrics smaller on very small screens */
+  .hero-stats {
+    max-width: 100%;
+    padding-top: 1.5rem;
+    margin-top: 1.25rem;
+    gap: 1rem;
+  }
+
+  /* Marquee slightly slower on mobile for readability */
+  .marquee-track {
+    animation-duration: 20s;
+  }
+
+  /* Footer headline more proportional on small screens */
+  .footer-headline-wrap h2 span {
+    font-size: clamp(2.5rem, 14vw, 5rem);
+  }
+
+  /* Larger tap targets for mobile menu links */
+  .mobile-nav-link {
+    padding: 0.75rem 0;
+    min-height: 48px;
+    display: flex;
+    align-items: center;
+  }
+}
+
+/* =============================================
+   HERO BADGE PULSE DOT GLOW
+   ============================================= */
+@keyframes badgeDotPulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(107,41,165,0.8); }
+  50%       { box-shadow: 0 0 0 6px rgba(107,41,165,0); }
+}
+
+.hero-badge span:first-child {
+  animation: badgeDotPulse 2s ease-in-out infinite;
+}
+
+/* =============================================
+   PROJECT META: MOBILE STACK
+   ============================================= */
+@media (max-width: 639px) {
+  .project-meta .flex.items-center.justify-between {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+}

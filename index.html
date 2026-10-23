@@ -48,6 +48,10 @@
 </head>
 <body class="bg-[#0B0914] text-white font-inter selection:bg-[#6B29A5] selection:text-white antialiased overflow-x-hidden">
 
+  <!-- Custom Cursor (desktop only) -->
+  <div id="custom-cursor" class="custom-cursor" aria-hidden="true"></div>
+  <div id="custom-cursor-dot" class="custom-cursor-dot" aria-hidden="true"></div>
+
   <!-- Subtle Film Grain Noise Overlay -->
   <div class="noise-overlay" aria-hidden="true"></div>
 
@@ -58,7 +62,7 @@
   <!-- =========================================================================
        HEADER: Fondo transparente, logo a la izquierda y menú hamburguesa minimalista
        ========================================================================= -->
-  <header id="main-header" class="fixed top-0 left-0 w-full z-50 transition-all duration-300 py-5 bg-transparent">
+  <header id="main-header" class="fixed top-0 left-0 w-full z-50 transition-all duration-300 py-5 bg-transparent relative overflow-hidden">
     <div class="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
       
       <!-- Logo a la izquierda (recursos/logo-blanco.png) -->
@@ -161,7 +165,7 @@
   <!-- =========================================================================
        HERO (PORTADA): Video de fondo o fallback con glow, Título gigante, Subtítulo y Botón degradado
        ========================================================================= -->
-  <section id="hero" class="relative min-h-[100svh] flex flex-col justify-center items-center text-center px-4 sm:px-6 lg:px-8 pt-24 pb-16 overflow-hidden">
+  <section id="hero" class="relative min-h-[100svh] flex flex-col justify-center items-center text-center px-4 sm:px-6 lg:px-8 pt-20 sm:pt-24 pb-12 sm:pb-16 overflow-hidden">
     
     <!-- Fondo: Video de la marca (recursos/Logo_Espiral_vintra.mp4) con alta visibilidad y contraste -->
     <div class="absolute inset-0 w-full h-full overflow-hidden pointer-events-none -z-10 bg-[#0B0914]">
@@ -193,21 +197,21 @@
       </div>
 
       <!-- TÍTULO GIGANTE: TECNOLOGÍA QUE POTENCIA TU MARCA -->
-      <h1 class="font-space font-bold uppercase text-4xl sm:text-6xl md:text-7xl lg:text-8xl tracking-tight leading-[0.95] text-white mb-6">
-        <span class="hero-title-line block">TECNOLOGÍA QUE</span>
+      <h1 class="font-space font-bold uppercase text-[clamp(2.4rem,10vw,7rem)] tracking-tight leading-[0.92] text-white mb-5 sm:mb-6">
+        <span class="hero-title-line block shimmer-text">TECNOLOGÍA QUE</span>
         <span class="hero-title-line block bg-gradient-to-r from-[#A855F7] via-[#6B29A5] to-[#3252E5] bg-clip-text text-transparent">
           POTENCIA TU MARCA
         </span>
       </h1>
 
       <!-- SUBTÍTULO -->
-      <p class="hero-desc text-base sm:text-xl md:text-2xl text-[#9A96A8] font-normal max-w-2xl leading-relaxed mb-10">
+      <p class="hero-desc text-sm sm:text-xl md:text-2xl text-[#9A96A8] font-normal max-w-2xl leading-relaxed mb-8 sm:mb-10 px-2 sm:px-0">
         Diseñamos páginas web y campañas de publicidad que no pasan desapercibidas.
       </p>
 
       <!-- BOTÓN CON DEGRADADO: "Ver Proyectos" -->
       <div class="hero-cta-btn flex flex-col sm:flex-row items-center gap-4">
-        <a href="#proyectos" class="group inline-flex items-center justify-center px-8 sm:px-10 py-4 sm:py-5 rounded-2xl bg-vintra-gradient hover:bg-vintra-gradient-hover text-white font-space font-bold uppercase text-sm sm:text-base tracking-wider transition-all duration-300 shadow-[0_0_30px_rgba(107,41,165,0.4)] hover:shadow-[0_0_45px_rgba(50,82,229,0.6)] hover:-translate-y-0.5">
+        <a href="#proyectos" class="magnetic-btn group inline-flex items-center justify-center px-8 sm:px-10 py-4 sm:py-5 rounded-2xl bg-vintra-gradient hover:bg-vintra-gradient-hover text-white font-space font-bold uppercase text-sm sm:text-base tracking-wider transition-all duration-300 shadow-[0_0_30px_rgba(107,41,165,0.4)] hover:shadow-[0_0_45px_rgba(50,82,229,0.6)] hover:-translate-y-0.5">
           <span>VER PROYECTOS</span>
           <svg class="w-5 h-5 ml-3 group-hover:translate-x-1.5 transition-transform duration-300" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" d="M19 14l-7 7m0 0l-7-7m7 7V3"/>
@@ -215,9 +219,57 @@
         </a>
       </div>
 
+      <!-- MÉTRICAS ANIMADAS -->
+      <div class="hero-stats grid grid-cols-3 gap-6 sm:gap-12 pt-10 mt-6 border-t border-white/10 w-full max-w-sm sm:max-w-md">
+        <div class="text-center">
+          <span class="block font-space font-bold text-3xl sm:text-4xl text-white counter" data-target="4">0</span>
+          <span class="block font-mono text-[10px] uppercase tracking-widest text-[#9A96A8] mt-1">Proyectos</span>
+        </div>
+        <div class="text-center border-x border-white/10">
+          <span class="block font-space font-bold text-3xl sm:text-4xl text-white counter" data-target="3">0</span>
+          <span class="block font-mono text-[10px] uppercase tracking-widest text-[#9A96A8] mt-1">Socios</span>
+        </div>
+        <div class="text-center">
+          <span class="block font-space font-bold text-3xl sm:text-4xl text-white"><span class="counter" data-target="100">0</span>%</span>
+          <span class="block font-mono text-[10px] uppercase tracking-widest text-[#9A96A8] mt-1">Satisfacción</span>
+        </div>
+      </div>
+
     </div>
 
   </section>
+
+  <!-- =========================================================================
+       MARQUEE / TICKER HORIZONTAL ANIMADO
+       ========================================================================= -->
+  <div class="marquee-strip w-full overflow-hidden border-y border-white/10 py-4 bg-[#0D0A1A] relative" aria-hidden="true">
+    <div class="marquee-track flex whitespace-nowrap">
+      <span class="marquee-content flex gap-10 pr-10 font-mono text-xs uppercase tracking-widest text-[#9A96A8]">
+        <span>✦ Diseño Web</span>
+        <span>✦ Publicidad Digital</span>
+        <span>✦ Meta Ads</span>
+        <span>✦ Branding</span>
+        <span>✦ Estrategia</span>
+        <span>✦ SEO</span>
+        <span>✦ Landing Pages</span>
+        <span>✦ E-Commerce</span>
+        <span>✦ Campañas</span>
+        <span>✦ Identidad Visual</span>
+      </span>
+      <span class="marquee-content flex gap-10 pr-10 font-mono text-xs uppercase tracking-widest text-[#9A96A8]" aria-hidden="true">
+        <span>✦ Diseño Web</span>
+        <span>✦ Publicidad Digital</span>
+        <span>✦ Meta Ads</span>
+        <span>✦ Branding</span>
+        <span>✦ Estrategia</span>
+        <span>✦ SEO</span>
+        <span>✦ Landing Pages</span>
+        <span>✦ E-Commerce</span>
+        <span>✦ Campañas</span>
+        <span>✦ Identidad Visual</span>
+      </span>
+    </div>
+  </div>
 
   <!-- =========================================================================
        SECCIÓN DE PROYECTOS (GALERÍA): Lista vertical de 5 proyectos a todo el ancho (full-width)
@@ -236,7 +288,7 @@
           </h2>
         </div>
         <p class="text-xs sm:text-sm text-[#9A96A8] max-w-xs font-mono">
-          5 PROYECTOS // EXPERIENCIAS DIGITALES A MEDIDA
+          4 PROYECTOS // EXPERIENCIAS DIGITALES A MEDIDA
         </p>
       </div>
     </div>
@@ -332,11 +384,11 @@
         </a>
       </article>
 
-      <!-- PROYECTO 4: EL CUEVO FOOD TRUCK (Gourmet Street Food: Tacos & Focaccia) -->
+      <!-- PROYECTO 4: EL CUERVO FOOD TRUCK -->
       <article class="project-card-item w-full relative group">
-        <div class="w-full">
+        <a href="https://el-cuervo-catering--dalekavideos.replit.app/" target="_blank" rel="noopener noreferrer" class="block w-full focus:outline-none" aria-label="Visitar proyecto El Cuervo Food Truck">
           <div class="w-full h-[60vh] sm:h-[75vh] min-h-[480px] relative overflow-hidden bg-[#100D1F] border-y border-white/10">
-            <img src="recursos/el-cuevo.jpg" alt="El Cuevo Food Truck - Tacos y Focaccia Gourmet" class="project-img-inner w-full h-full object-cover object-center filter brightness-95 group-hover:scale-105 transition-all duration-700 ease-out">
+            <img src="recursos/el-cuevo.png" alt="El Cuervo Food Truck - Catering y Gastronomía" class="project-img-inner w-full h-full object-cover object-center filter brightness-95 group-hover:scale-105 group-hover:brightness-105 transition-all duration-700 ease-out">
             <div class="absolute inset-0 bg-gradient-to-t from-[#0B0914] via-[#0B0914]/40 to-transparent"></div>
           </div>
 
@@ -344,50 +396,47 @@
             <div class="flex items-center justify-between border-b border-white/10 pb-4">
               <div class="flex items-center gap-3">
                 <span class="font-mono text-xs text-[#9A96A8]">04</span>
-                <h3 class="font-space font-bold uppercase text-lg sm:text-xl text-white tracking-wide">
-                  EL CUEVO FOOD TRUCK
+                <h3 class="font-space font-bold uppercase text-lg sm:text-xl text-white tracking-wide group-hover:text-[#A855F7] transition-colors">
+                  EL CUERVO FOOD TRUCK
                 </h3>
                 <span class="text-xs text-[#9A96A8] font-inter hidden sm:inline-block">
-                  &bull; Gastronomía Urbana: Tacos, Focaccia & Street Food
+                  &bull; Catering &amp; Gastronomía Urbana
                 </span>
               </div>
-              <span class="text-xs font-mono uppercase tracking-wider text-amber-400 bg-amber-400/10 px-3 py-1 rounded-full border border-amber-400/20">
-                SITIO EN DESARROLLO
+              <span class="text-xs font-mono uppercase tracking-wider text-white group-hover:text-emerald-400 flex items-center gap-1.5 transition-colors">
+                <span>VISITAR SITIO</span> &rarr;
               </span>
             </div>
           </div>
-        </div>
+        </a>
       </article>
 
-      <!-- PROYECTO 5: PLACEHOLDER 5 -->
-      <article class="project-card-item w-full relative group">
-        <div class="w-full">
-          <div class="w-full h-[60vh] sm:h-[75vh] min-h-[480px] relative overflow-hidden bg-[#100D1F] border-y border-white/10">
-            <img src="recursos/proyecto-5.jpg" alt="Proyecto Editorial 05" class="project-img-inner w-full h-full object-cover object-center filter brightness-90 group-hover:scale-105 transition-all duration-700 ease-out">
-            <div class="absolute inset-0 bg-gradient-to-t from-[#0B0914] via-[#0B0914]/40 to-transparent"></div>
-          </div>
-
-          <div class="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-5 project-meta">
-            <div class="flex items-center justify-between border-b border-white/10 pb-4">
-              <div class="flex items-center gap-3">
-                <span class="font-mono text-xs text-[#9A96A8]">05</span>
-                <h3 class="font-space font-bold uppercase text-lg sm:text-xl text-white tracking-wide">
-                  SOLARIS MOBILITY
-                </h3>
-                <span class="text-xs text-[#9A96A8] font-inter hidden sm:inline-block">
-                  &bull; Sistema de Telemetría IoT & App Móvil
-                </span>
-              </div>
-              <span class="text-xs font-mono uppercase tracking-wider text-[#9A96A8]">
-                CASO DE ESTUDIO
-              </span>
-            </div>
-          </div>
-        </div>
-      </article>
 
     </div>
 
+  </section>
+
+  <!-- =========================================================================
+       SECCIÓN VIDEO SHOWCASE — Personalidad de marca
+       ========================================================================= -->
+  <section class="video-showcase-section w-full relative overflow-hidden" aria-label="Video de marca Vintra">
+    <div class="relative w-full aspect-video sm:h-[70vh] min-h-[280px] max-h-[680px] overflow-hidden">
+      <video autoplay muted loop playsinline preload="auto"
+        class="w-full h-full object-cover opacity-90 scale-105"
+        aria-hidden="true">
+        <source src="recursos/video-hero.mp4" type="video/mp4">
+      </video>
+      <!-- Overlay gradiente top + bottom para integrar con el fondo oscuro -->
+      <div class="absolute inset-0 bg-gradient-to-b from-[#0B0914] via-transparent to-[#0B0914] opacity-80"></div>
+      <div class="absolute inset-0 bg-gradient-to-r from-[#0B0914]/60 via-transparent to-[#0B0914]/60"></div>
+      <!-- Texto superpuesto centrado -->
+      <div class="absolute inset-0 flex flex-col items-center justify-center text-center px-4">
+        <span class="font-mono text-[10px] sm:text-xs uppercase tracking-widest text-[#9A96A8] mb-3 sm:mb-4">[ NUESTRO ESTUDIO ]</span>
+        <p class="font-space font-bold uppercase text-2xl sm:text-4xl md:text-5xl text-white leading-tight tracking-tight max-w-2xl">
+          Donde la <span class="text-gradient">tecnología</span><br>se encuentra con el diseño
+        </p>
+      </div>
+    </div>
   </section>
 
   <!-- =========================================================================
@@ -551,6 +600,15 @@
     
     <div class="w-full max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center flex flex-col items-center">
       
+      <!-- Headline editorial grande -->
+      <div class="footer-headline-wrap mb-12 text-center overflow-hidden">
+        <p class="font-mono text-xs uppercase tracking-widest text-[#9A96A8] mb-5">[ ¿LISTO PARA EL SIGUIENTE NIVEL? ]</p>
+        <h2 class="font-space font-bold uppercase leading-none tracking-tighter">
+          <span class="block text-5xl sm:text-7xl md:text-8xl lg:text-9xl text-white footer-line-1">HABLEMOS</span>
+          <span class="block text-5xl sm:text-7xl md:text-8xl lg:text-9xl bg-gradient-to-r from-[#A855F7] via-[#6B29A5] to-[#3252E5] bg-clip-text text-transparent footer-line-2">DE TU MARCA</span>
+        </h2>
+      </div>
+
       <!-- Logo Centrado (recursos/logo-blanco.png) -->
       <div class="w-20 h-20 sm:w-24 sm:h-24 rounded-full overflow-hidden flex items-center justify-center bg-black/60 border border-white/10 mb-6 shadow-xl shadow-purple-950/40">
         <img src="recursos/logo-blanco.png" alt="Vintra Logo" class="w-full h-full object-cover mix-blend-screen scale-110">
@@ -576,7 +634,7 @@
 
       <!-- Enlaces a Redes Sociales -->
       <div class="flex flex-wrap items-center justify-center gap-6 sm:gap-8 pb-12 border-b border-white/10 w-full text-xs font-mono uppercase tracking-wider text-[#9A96A8]">
-        <a href="https://instagram.com" target="_blank" rel="noopener" class="hover:text-white transition-colors">
+        <a href="https://www.instagram.com/vintra_publicidad/" target="_blank" rel="noopener" class="hover:text-white transition-colors">
           INSTAGRAM &rarr;
         </a>
         <a href="https://linkedin.com" target="_blank" rel="noopener" class="hover:text-white transition-colors">

@@ -219,4 +219,88 @@ document.addEventListener('DOMContentLoaded', () => {
       if (heroFallback) heroFallback.classList.remove('hidden');
     });
   }
+
+  // 8. Custom Cursor
+  const cursor = document.getElementById('custom-cursor');
+  const cursorDot = document.getElementById('custom-cursor-dot');
+  if (cursor && cursorDot && window.matchMedia('(pointer: fine)').matches) {
+    let cursorX = 0, cursorY = 0, dotX = 0, dotY = 0;
+    document.addEventListener('mousemove', (e) => {
+      cursorX = e.clientX; cursorY = e.clientY;
+      cursorDot.style.left = cursorX + 'px';
+      cursorDot.style.top = cursorY + 'px';
+      cursor.classList.add('active');
+      cursorDot.classList.add('active');
+    });
+    // Smooth lag for ring
+    function animateCursor() {
+      dotX += (cursorX - dotX) * 0.12;
+      dotY += (cursorY - dotY) * 0.12;
+      cursor.style.left = dotX + 'px';
+      cursor.style.top = dotY + 'px';
+      requestAnimationFrame(animateCursor);
+    }
+    animateCursor();
+    // Hover state
+    document.querySelectorAll('a, button, [role="button"]').forEach(el => {
+      el.addEventListener('mouseenter', () => cursor.classList.add('hovered'));
+      el.addEventListener('mouseleave', () => cursor.classList.remove('hovered'));
+    });
+    document.addEventListener('mouseleave', () => {
+      cursor.classList.remove('active');
+      cursorDot.classList.remove('active');
+    });
+  }
+
+  // 9. Animated Number Counters
+  function animateCounter(el) {
+    const target = parseInt(el.dataset.target, 10);
+    const duration = 1400;
+    const start = performance.now();
+    function update(now) {
+      const progress = Math.min((now - start) / duration, 1);
+      const eased = 1 - Math.pow(1 - progress, 3);
+      el.textContent = Math.round(eased * target);
+      if (progress < 1) requestAnimationFrame(update);
+    }
+    requestAnimationFrame(update);
+  }
+  const counterEls = document.querySelectorAll('.counter');
+  if (counterEls.length) {
+    const counterObs = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          animateCounter(entry.target);
+          counterObs.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.5 });
+    counterEls.forEach(el => counterObs.observe(el));
+  }
+
+  // 10. Footer Headline Reveal
+  const footerHeadline = document.querySelector('.footer-headline-wrap');
+  if (footerHeadline) {
+    const footerObs = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          footerHeadline.classList.add('in-view');
+          footerObs.unobserve(footerHeadline);
+        }
+      });
+    }, { threshold: 0.2 });
+    footerObs.observe(footerHeadline);
+  }
+
+  // 11. Header gradient border on scroll
+  if (header) {
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 40) {
+        header.classList.add('scrolled-header');
+      } else {
+        header.classList.remove('scrolled-header');
+      }
+    }, { passive: true });
+  }
+
 });
