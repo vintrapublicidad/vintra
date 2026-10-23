@@ -173,20 +173,19 @@ html {
 }
 
 /* =============================================
-   HERO VIDEO PORTAL (FRAME CINEMÁTICO EN EL HERO)
+   HERO VIDEO ESPIRAL (INTEGRADO AL FONDO, SIN BORDES)
    ============================================= */
 .hero-video-portal {
-  perspective: 1000px;
+  position: relative;
   transform: translateZ(0);
 }
 
 .hero-video-portal-inner {
-  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.6s ease;
-}
-
-.hero-video-portal:hover .hero-video-portal-inner {
-  transform: translateY(-4px) scale(1.01);
-  box-shadow: 0 25px 70px rgba(0, 0, 0, 0.9), 0 0 50px rgba(107, 41, 165, 0.4);
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  -webkit-mask-image: radial-gradient(ellipse 70% 70% at 50% 50%, #000 40%, transparent 95%);
+  mask-image: radial-gradient(ellipse 70% 70% at 50% 50%, #000 40%, transparent 95%);
 }
 
 /* =============================================

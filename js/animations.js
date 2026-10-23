@@ -31,6 +31,12 @@
       { opacity: 1, y: 0, duration: 0.8, delay: 0.2 }
     );
 
+    heroTl.fromTo('.hero-video-portal', 
+      { opacity: 0, scale: 0.9, y: 15 }, 
+      { opacity: 1, scale: 1, y: 0, duration: 0.9, ease: 'power3.out' }, 
+      '-=0.5'
+    );
+
     heroTl.fromTo('.hero-mask-line', 
       { y: '115%', opacity: 0 }, 
       { y: '0%', opacity: 1, duration: 1.1, stagger: 0.12, ease: 'power4.out' }, 
@@ -38,19 +44,13 @@
     );
 
     heroTl.fromTo('.hero-sub-p', 
-      { opacity: 0, y: 25 }, 
+      { opacity: 0, y: 20 }, 
       { opacity: 1, y: 0, duration: 0.8 }, 
       '-=0.6'
     );
 
-    heroTl.fromTo('.hero-video-portal', 
-      { opacity: 0, y: 30, scale: 0.96 }, 
-      { opacity: 1, y: 0, scale: 1, duration: 0.9, ease: 'power3.out' }, 
-      '-=0.6'
-    );
-
     heroTl.fromTo('.hero-actions-group', 
-      { opacity: 0, y: 25 }, 
+      { opacity: 0, y: 20 }, 
       { opacity: 1, y: 0, duration: 0.8 }, 
       '-=0.5'
     );

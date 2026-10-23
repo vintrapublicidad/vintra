@@ -183,51 +183,44 @@
     <div class="w-full max-w-5xl mx-auto flex flex-col items-center my-auto z-10">
       
       <!-- Pill Badge Editorial -->
-      <div class="hero-badge-pill inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-white/[0.04] border border-white/10 backdrop-blur-md mb-6 sm:mb-7">
+      <div class="hero-badge-pill inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-white/[0.04] border border-white/10 backdrop-blur-md mb-3 sm:mb-4">
         <span class="w-2 h-2 rounded-full bg-[#D8CFBC] shadow-[0_0_8px_#D8CFBC]"></span>
         <span class="font-mono text-[11px] sm:text-xs uppercase tracking-widest text-[#D8CFBC]">
           ESTUDIO DIGITAL // TRES SOCIOS TECNOLÓGICOS
         </span>
       </div>
 
-      <!-- TÍTULO MONUMENTAL (Con animación de color que recorre las letras) -->
-      <h1 class="font-editorial font-extrabold uppercase text-[clamp(1.85rem,7.5vw,6rem)] tracking-tight leading-[0.94] text-[#EAE5D9] mb-5">
-        <span class="block overflow-hidden">
-          <span class="hero-mask-line block shimmer-title">TECNOLOGÍA QUE</span>
-        </span>
-        <span class="block overflow-hidden mt-1 sm:mt-2">
-          <span class="hero-mask-line block flex items-center justify-center gap-2 sm:gap-3">
-            <span class="shimmer-accent">POTENCIA TU MARCA</span> <span class="square-accent"></span>
-          </span>
-        </span>
-      </h1>
+      <!-- VIDEO ARRIBA (INTEGRADO AL FONDO, SIN BORDES NI CARTELES) -->
+      <div class="hero-video-portal w-full max-w-xs sm:max-w-sm mx-auto my-1 sm:my-2 relative flex items-center justify-center">
+        <!-- Resplandor sutil centrado detrás de la espiral -->
+        <div class="absolute inset-0 w-3/4 h-3/4 mx-auto my-auto glow-purple rounded-full blur-3xl opacity-35 pointer-events-none -z-10"></div>
 
-      <!-- SUBTÍTULO -->
-      <p class="hero-sub-p text-sm sm:text-lg md:text-xl text-[#8E897E] font-normal max-w-2xl leading-relaxed mb-6 sm:mb-8 px-2">
-        Diseñamos páginas web y campañas de publicidad que no pasan desapercibidas. Hechas al detalle para marcas que buscan trascender.
-      </p>
-
-      <!-- PORTAL CINEMÁTICO DEL VIDEO EN EL HERO (TOTALMENTE VISIBLE, SIN TEXTO ENCIMA) -->
-      <div class="hero-video-portal w-full max-w-2xl mx-auto mb-7 sm:mb-9 relative group px-1 sm:px-0">
-        <div class="hero-video-portal-inner relative w-full aspect-[16/9] sm:aspect-[21/9] rounded-2xl sm:rounded-3xl overflow-hidden bg-[#121017] border border-white/15 shadow-[0_20px_60px_rgba(0,0,0,0.8),0_0_40px_rgba(107,41,165,0.25)]">
-          <video id="hero-portal-video" autoplay muted loop playsinline preload="auto" class="w-full h-full object-cover filter brightness-105 contrast-110">
+        <div class="hero-video-portal-inner relative w-full aspect-[16/10] sm:aspect-[21/9] flex items-center justify-center overflow-hidden">
+          <video id="hero-portal-video" autoplay muted loop playsinline preload="auto" class="w-full h-full object-contain mix-blend-screen filter brightness-115 contrast-120">
             <source src="recursos/Logo_Espiral_vintra.mp4" type="video/mp4">
             <source src="recursos/video-hero.mp4" type="video/mp4">
           </video>
-          
-          <!-- Suave scrim perimetral -->
-          <div class="absolute inset-0 bg-gradient-to-t from-[#0A090D]/50 via-transparent to-[#0A090D]/30 pointer-events-none"></div>
-
-          <!-- Badges interactivos en el video -->
-          <div class="absolute top-3 left-4 flex items-center gap-2 px-3 py-1 rounded-full bg-black/60 backdrop-blur-md border border-white/10 text-[10px] font-mono uppercase tracking-wider text-[#D8CFBC]">
-            <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
-            <span>VINTRA CORE // ESPIRAL</span>
-          </div>
-
-          <div class="absolute bottom-3 right-4 hidden sm:flex items-center gap-2 px-3 py-1 rounded-full bg-black/60 backdrop-blur-md border border-white/10 text-[10px] font-mono uppercase tracking-wider text-[#8E897E]">
-            <span>SISTEMA DINÁMICO 2026</span>
-          </div>
         </div>
+      </div>
+
+      <!-- TEXTO ABAJO (ALGO PEGADO AL VIDEO) -->
+      <div class="hero-text-block mt-0 sm:mt-1 mb-5 sm:mb-7 text-center max-w-4xl mx-auto">
+        <!-- TÍTULO MONUMENTAL (Con animación de color que recorre las letras) -->
+        <h1 class="font-editorial font-extrabold uppercase text-[clamp(1.85rem,7.5vw,5.5rem)] tracking-tight leading-[0.94] text-[#EAE5D9] mb-3.5">
+          <span class="block overflow-hidden">
+            <span class="hero-mask-line block shimmer-title">TECNOLOGÍA QUE</span>
+          </span>
+          <span class="block overflow-hidden mt-1 sm:mt-2">
+            <span class="hero-mask-line block flex items-center justify-center gap-2 sm:gap-3">
+              <span class="shimmer-accent">POTENCIA TU MARCA</span> <span class="square-accent"></span>
+            </span>
+          </span>
+        </h1>
+
+        <!-- SUBTÍTULO -->
+        <p class="hero-sub-p text-sm sm:text-lg text-[#8E897E] font-normal max-w-2xl mx-auto leading-relaxed px-2">
+          Diseñamos páginas web y campañas de publicidad que no pasan desapercibidas. Hechas al detalle para marcas que buscan trascender.
+        </p>
       </div>
 
       <!-- BOTONES DE ACCIÓN: Sand Pill + Dark Editorial -->
@@ -454,23 +447,43 @@
   </section>
 
   <!-- =========================================================================
-       SHOWCASE VIDEO CINEMÁTICO
+       SHOWCASE VIDEO CINEMÁTICO (VIDEO ARRIBA, TEXTO ABAJO)
        ========================================================================= -->
-  <section class="w-full relative overflow-hidden border-y border-white/10 bg-[#0A090D]" aria-label="Video de marca Vintra">
-    <div class="relative w-full aspect-video sm:h-[70vh] min-h-[300px] max-h-[680px] overflow-hidden">
-      <video autoplay muted loop playsinline preload="auto" class="w-full h-full object-cover opacity-85 scale-105" aria-hidden="true">
-        <source src="recursos/video-hero.mp4" type="video/mp4">
-      </video>
-      <div class="absolute inset-0 bg-gradient-to-b from-[#0A090D] via-transparent to-[#0A090D] opacity-80"></div>
-      <div class="absolute inset-0 bg-gradient-to-r from-[#0A090D]/70 via-transparent to-[#0A090D]/70"></div>
+  <section class="py-20 sm:py-28 w-full border-t border-white/5 bg-[#0A090D] text-center px-4 sm:px-6 lg:px-8 relative overflow-hidden" aria-label="Video de marca Vintra">
+    
+    <div class="w-full max-w-4xl mx-auto flex flex-col items-center">
       
-      <div class="absolute inset-0 flex flex-col items-center justify-center text-center px-4">
-        <span class="font-mono text-[10px] sm:text-xs uppercase tracking-widest text-[#D8CFBC] mb-3">[ NUESTRO ESTUDIO ]</span>
-        <p class="font-editorial font-extrabold uppercase text-2xl sm:text-4xl md:text-5xl text-white leading-tight tracking-tight max-w-2xl">
+      <!-- Pill Badge -->
+      <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white/[0.04] border border-white/10 mb-4 sm:mb-5">
+        <span class="w-1.5 h-1.5 rounded-full bg-[#D8CFBC]"></span>
+        <span class="font-mono text-[10px] sm:text-xs uppercase tracking-widest text-[#D8CFBC]">[ NUESTRO ESTUDIO ]</span>
+      </div>
+
+      <!-- VIDEO ARRIBA (INTEGRADO AL FONDO, SIN BORDES) -->
+      <div class="hero-video-portal w-full max-w-xs sm:max-w-md mx-auto my-1 sm:my-3 relative flex items-center justify-center">
+        <!-- Resplandor sutil centrado -->
+        <div class="absolute inset-0 w-3/4 h-3/4 mx-auto my-auto glow-blue rounded-full blur-3xl opacity-30 pointer-events-none -z-10"></div>
+        
+        <div class="hero-video-portal-inner relative w-full aspect-[16/10] sm:aspect-[21/9] flex items-center justify-center overflow-hidden">
+          <video autoplay muted loop playsinline preload="auto" class="w-full h-full object-contain mix-blend-screen filter brightness-110 contrast-115">
+            <source src="recursos/video-hero.mp4" type="video/mp4">
+            <source src="recursos/Logo_Espiral_vintra.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+
+      <!-- TEXTO ABAJO (ALGO PEGADO) -->
+      <div class="mt-2 sm:mt-3 max-w-2xl mx-auto text-center">
+        <h2 class="font-editorial font-extrabold uppercase text-2xl sm:text-4xl md:text-5xl text-white leading-tight tracking-tight mb-2.5">
           Donde la tecnología se encuentra con el diseño <span class="square-accent"></span>
+        </h2>
+        <p class="font-mono text-xs sm:text-sm text-[#8E897E] tracking-wider uppercase">
+          ✦ EXPERIENCIAS DIGITALES QUE POTENCIAN TU NEGOCIO
         </p>
       </div>
+
     </div>
+
   </section>
 
   <!-- =========================================================================
