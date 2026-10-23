@@ -1,0 +1,167 @@
+/* Vintra Editorial Dark Mode Styles */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
+:root {
+  --bg-color: #0B0914;
+  --text-primary: #FFFFFF;
+  --text-muted: #9A96A8;
+  --purple-accent: #6B29A5;
+  --blue-accent: #3252E5;
+}
+
+html {
+  background-color: var(--bg-color);
+  color: var(--text-primary);
+  font-family: 'Inter', sans-serif;
+  scroll-behavior: auto; /* Let Lenis handle smooth scroll */
+}
+
+/* Custom Selection */
+::selection {
+  background-color: #6B29A5;
+  color: #FFFFFF;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #0B0914;
+}
+::-webkit-scrollbar-thumb {
+  background: #25203D;
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #6B29A5;
+}
+
+/* Editorial Typography */
+.font-space {
+  font-family: 'Space Grotesk', sans-serif;
+  letter-spacing: -0.03em;
+}
+
+.font-inter {
+  font-family: 'Inter', sans-serif;
+}
+
+/* Editorial Gradient Text */
+.text-gradient {
+  background: linear-gradient(135deg, #A855F7 0%, #6B29A5 45%, #3252E5 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-gradient-subtle {
+  background: linear-gradient(180deg, #FFFFFF 0%, #9A96A8 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Editorial Gradient Backgrounds & Borders */
+.bg-vintra-gradient {
+  background: linear-gradient(135deg, #6B29A5 0%, #3252E5 100%);
+}
+
+.bg-vintra-gradient-hover {
+  background: linear-gradient(135deg, #7C32BD 0%, #3E62FA 100%);
+}
+
+.border-gradient-card {
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  position: relative;
+  background-clip: padding-box;
+}
+
+.border-gradient-card::before {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(135deg, rgba(107, 41, 165, 0.4), rgba(50, 82, 229, 0.2), transparent 70%);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+/* Noise Texture Overlay */
+.noise-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  content: "";
+  opacity: 0.025;
+  pointer-events: none;
+  z-index: 99;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+}
+
+/* Ambient Radial Glows */
+.glow-purple {
+  background: radial-gradient(circle, rgba(107, 41, 165, 0.25) 0%, rgba(11, 9, 20, 0) 70%);
+}
+
+.glow-blue {
+  background: radial-gradient(circle, rgba(50, 82, 229, 0.2) 0%, rgba(11, 9, 20, 0) 70%);
+}
+
+/* Stacking Cards Sticky Logic */
+.stacked-card {
+  position: sticky;
+  top: 6rem;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
+}
+
+/* Full Bleed Gallery Image Parallax Container */
+.bleed-image-wrapper {
+  overflow: hidden;
+  position: relative;
+}
+
+.bleed-image-wrapper img {
+  transform: scale(1.08);
+  will-change: transform;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.bleed-card:hover .bleed-image-wrapper img {
+  transform: scale(1.14);
+}
+
+/* Glowing Pulsing Beacon */
+@keyframes pulseGlow {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(1.05);
+    box-shadow: 0 0 0 8px rgba(34, 197, 94, 0);
+  }
+}
+
+.live-beacon {
+  animation: pulseGlow 2.5s infinite ease-in-out;
+}
+
+/* WhatsApp Floating Pulse */
+@keyframes waPulse {
+  0%, 100% {
+    box-shadow: 0 0 25px rgba(50, 82, 229, 0.4), 0 0 50px rgba(107, 41, 165, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 35px rgba(50, 82, 229, 0.7), 0 0 70px rgba(107, 41, 165, 0.5);
+  }
+}
+
+.wa-btn-glow {
+  animation: waPulse 3s infinite ease-in-out;
+}
