@@ -109,7 +109,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // 5. WhatsApp Integration Trigger
   window.openVintraWhatsApp = function(topic = 'general') {
-    const phoneNumber = '5491100000000'; // Número de contacto de Vintra
+    const phoneNumber = '5493837407858'; // Número de contacto oficial de Vintra
     let text = 'Hola Vintra, vi su web y quiero potenciar mi negocio con ustedes.';
     if (topic === 'proyectos') {
       text = 'Hola Vintra, me gustaron sus proyectos. Quiero cotizar una web moderna para mi marca.';
