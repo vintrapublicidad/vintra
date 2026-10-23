@@ -1,94 +1,157 @@
-/* Vintra Editorial Dark Mode Styles */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+/* =========================================================================
+   Vintra — Estilo Editorial Inspirado en Marcus Lorenzet (Awwwards / High-End)
+   Tipografía: Plus Jakarta Sans (Monumental) + Inter + Space Grotesk
+   Paleta: Dark Noir (#0A090D) + Warm Champagne / Sand (#D8CFBC / #EAE5D9)
+   ========================================================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
 
 :root {
-  --bg-color: #0B0914;
-  --text-primary: #FFFFFF;
-  --text-muted: #9A96A8;
-  --purple-accent: #6B29A5;
-  --blue-accent: #3252E5;
+  --bg-color: #0A090D;
+  --bg-surface: #121017;
+  --bg-card: #16141D;
+  --text-primary: #EAE5D9;
+  --text-muted: #8E897E;
+  --text-subtle: #5A564F;
+  --sand-accent: #D8CFBC;
+  --sand-light: #F4F1EA;
+  --sand-dark: #1F1D19;
+  --purple-glow: rgba(107, 41, 165, 0.25);
+  --blue-glow: rgba(50, 82, 229, 0.22);
 }
 
 html {
   background-color: var(--bg-color);
   color: var(--text-primary);
   font-family: 'Inter', sans-serif;
-  scroll-behavior: auto; /* Let Lenis handle smooth scroll */
+  scroll-behavior: auto; /* Controlado por Lenis */
 }
 
-/* Custom Selection */
+/* Selección de texto elegante */
 ::selection {
-  background-color: #6B29A5;
-  color: #FFFFFF;
+  background-color: #D8CFBC;
+  color: #0A090D;
 }
 
-/* Custom Scrollbar */
+/* Scrollbar minimalista */
 ::-webkit-scrollbar {
-  width: 6px;
+  width: 5px;
 }
 ::-webkit-scrollbar-track {
-  background: #0B0914;
+  background: #0A090D;
 }
 ::-webkit-scrollbar-thumb {
-  background: #25203D;
+  background: #25222D;
   border-radius: 9999px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #6B29A5;
+  background: #D8CFBC;
 }
 
-/* Editorial Typography */
+/* =============================================
+   TIPOGRAFÍA EDITORIAL (MARCUS LORENZET STYLE)
+   ============================================= */
+.font-editorial {
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  letter-spacing: -0.04em;
+}
+
 .font-space {
   font-family: 'Space Grotesk', sans-serif;
-  letter-spacing: -0.03em;
+  letter-spacing: -0.02em;
 }
 
 .font-inter {
   font-family: 'Inter', sans-serif;
 }
 
-/* Editorial Gradient Text */
-.text-gradient {
-  background: linear-gradient(135deg, #A855F7 0%, #6B29A5 45%, #3252E5 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+/* Colores Sand / Champagne */
+.text-sand {
+  color: var(--sand-accent);
 }
 
-.text-gradient-subtle {
-  background: linear-gradient(180deg, #FFFFFF 0%, #9A96A8 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+.text-sand-light {
+  color: var(--sand-light);
 }
 
-/* Editorial Gradient Backgrounds & Borders */
-.bg-vintra-gradient {
-  background: linear-gradient(135deg, #6B29A5 0%, #3252E5 100%);
+.text-sand-muted {
+  color: var(--text-muted);
 }
 
-.bg-vintra-gradient-hover {
-  background: linear-gradient(135deg, #7C32BD 0%, #3E62FA 100%);
+.bg-sand {
+  background-color: var(--sand-accent);
+  color: #0A090D;
 }
 
-.border-gradient-card {
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  position: relative;
-  background-clip: padding-box;
+/* Botón Sand Signature */
+.btn-sand {
+  background-color: var(--sand-accent);
+  color: #0A090D;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 700;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.border-gradient-card::before {
+.btn-sand:hover {
+  background-color: var(--sand-light);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 35px rgba(216, 207, 188, 0.22);
+}
+
+/* Botón Dark Editorial */
+.btn-dark-editorial {
+  background-color: rgba(255, 255, 255, 0.05);
+  color: #EAE5D9;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  transition: all 0.3s ease;
+}
+
+.btn-dark-editorial:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-color: var(--sand-accent);
+  color: #FFFFFF;
+}
+
+/* Signature Square Element (el cuadradito característico de Marcus) */
+.square-accent {
+  display: inline-block;
+  width: 0.45em;
+  height: 0.45em;
+  background-color: var(--sand-accent);
+  vertical-align: baseline;
+  margin-left: 0.15em;
+  border-radius: 1px;
+}
+
+/* =============================================
+   TEXT SCRUB SECTION (MARCUS LORENZET SCROLL REVEAL)
+   ============================================= */
+.scrub-word {
+  opacity: 0.18;
+  color: #A6A094;
+  display: inline;
+  transition: opacity 0.25s ease, color 0.25s ease;
+  will-change: opacity, color;
+}
+
+.scrub-word.lit {
+  opacity: 1 !important;
+  color: #FFFFFF !important;
+}
+
+/* =============================================
+   VIGNETTE ANAMÓRFICA (GLOW EN BORDES DEL VIEWPORT)
+   ============================================= */
+body::after {
   content: '';
-  position: absolute;
-  inset: -1px;
-  border-radius: inherit;
-  padding: 1px;
-  background: linear-gradient(135deg, rgba(107, 41, 165, 0.4), rgba(50, 82, 229, 0.2), transparent 70%);
-  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-  -webkit-mask-composite: xor;
-  mask-composite: exclude;
+  position: fixed;
+  inset: 0;
+  box-shadow: inset 0 0 120px 25px rgba(24, 30, 80, 0.3);
   pointer-events: none;
+  z-index: 85;
 }
 
-/* Noise Texture Overlay */
+/* Ruido sutil analógico */
 .noise-overlay {
   position: fixed;
   top: 0;
@@ -96,74 +159,19 @@ html {
   width: 100vw;
   height: 100vh;
   content: "";
-  opacity: 0.025;
+  opacity: 0.02;
   pointer-events: none;
-  z-index: 99;
+  z-index: 95;
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
 }
 
-/* Ambient Radial Glows */
+/* Ambient Radial Glows (sutiles y cinemáticos) */
 .glow-purple {
-  background: radial-gradient(circle, rgba(107, 41, 165, 0.25) 0%, rgba(11, 9, 20, 0) 70%);
+  background: radial-gradient(circle, rgba(107, 41, 165, 0.18) 0%, rgba(10, 9, 13, 0) 70%);
 }
 
 .glow-blue {
-  background: radial-gradient(circle, rgba(50, 82, 229, 0.2) 0%, rgba(11, 9, 20, 0) 70%);
-}
-
-/* Stacking Cards Sticky Logic */
-.stacked-card {
-  position: sticky;
-  top: 6rem;
-  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
-}
-
-/* Full Bleed Gallery Image Parallax Container */
-.bleed-image-wrapper {
-  overflow: hidden;
-  position: relative;
-}
-
-.bleed-image-wrapper img {
-  transform: scale(1.08);
-  will-change: transform;
-  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.bleed-card:hover .bleed-image-wrapper img {
-  transform: scale(1.14);
-}
-
-/* Glowing Pulsing Beacon */
-@keyframes pulseGlow {
-  0%, 100% {
-    opacity: 1;
-    transform: scale(1);
-    box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7);
-  }
-  50% {
-    opacity: 0.8;
-    transform: scale(1.05);
-    box-shadow: 0 0 0 8px rgba(34, 197, 94, 0);
-  }
-}
-
-.live-beacon {
-  animation: pulseGlow 2.5s infinite ease-in-out;
-}
-
-/* WhatsApp Floating Pulse */
-@keyframes waPulse {
-  0%, 100% {
-    box-shadow: 0 0 25px rgba(50, 82, 229, 0.4), 0 0 50px rgba(107, 41, 165, 0.3);
-  }
-  50% {
-    box-shadow: 0 0 35px rgba(50, 82, 229, 0.7), 0 0 70px rgba(107, 41, 165, 0.5);
-  }
-}
-
-.wa-btn-glow {
-  animation: waPulse 3s infinite ease-in-out;
+  background: radial-gradient(circle, rgba(50, 82, 229, 0.15) 0%, rgba(10, 9, 13, 0) 70%);
 }
 
 /* =============================================
@@ -176,9 +184,9 @@ html {
 
 .custom-cursor {
   position: fixed;
-  width: 36px;
-  height: 36px;
-  border: 1.5px solid rgba(168, 85, 247, 0.7);
+  width: 34px;
+  height: 34px;
+  border: 1.5px solid rgba(216, 207, 188, 0.6);
   border-radius: 50%;
   pointer-events: none;
   z-index: 9999;
@@ -186,14 +194,13 @@ html {
   transition: width 0.25s ease, height 0.25s ease, border-color 0.25s ease, background-color 0.25s ease, opacity 0.25s ease;
   opacity: 0;
   will-change: transform;
-  backdrop-filter: blur(1px);
 }
 
 .custom-cursor-dot {
   position: fixed;
   width: 5px;
   height: 5px;
-  background: #A855F7;
+  background: #D8CFBC;
   border-radius: 50%;
   pointer-events: none;
   z-index: 9999;
@@ -207,14 +214,14 @@ html {
 .custom-cursor-dot.active { opacity: 1; }
 
 .custom-cursor.hovered {
-  width: 56px;
-  height: 56px;
-  border-color: rgba(168, 85, 247, 0.4);
-  background-color: rgba(107, 41, 165, 0.12);
+  width: 54px;
+  height: 54px;
+  border-color: rgba(216, 207, 188, 0.9);
+  background-color: rgba(216, 207, 188, 0.08);
 }
 
 /* =============================================
-   MARQUEE HORIZONTAL ANIMADO
+   MARQUEE HORIZONTAL
    ============================================= */
 @keyframes marqueeScroll {
   from { transform: translateX(0); }
@@ -224,7 +231,7 @@ html {
 .marquee-track {
   display: flex;
   width: max-content;
-  animation: marqueeScroll 30s linear infinite;
+  animation: marqueeScroll 28s linear infinite;
 }
 
 .marquee-strip:hover .marquee-track {
@@ -232,193 +239,47 @@ html {
 }
 
 /* =============================================
-   HERO STATS FADE-IN
-   ============================================= */
-.hero-stats {
-  opacity: 0;
-  transform: translateY(20px);
-  animation: statsFadeIn 0.8s ease 1.4s forwards;
-}
-
-@keyframes statsFadeIn {
-  to { opacity: 1; transform: translateY(0); }
-}
-
-/* =============================================
-   FOOTER EDITORIAL HEADLINE
-   ============================================= */
-.footer-line-1,
-.footer-line-2 {
-  display: block;
-  opacity: 0;
-  transform: translateY(60px);
-  transition: opacity 0.8s ease, transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.footer-headline-wrap.in-view .footer-line-1 { opacity: 1; transform: translateY(0); }
-.footer-headline-wrap.in-view .footer-line-2 { opacity: 1; transform: translateY(0); transition-delay: 0.12s; }
-
-/* =============================================
-   HEADER: BORDE GRADIENTE ANIMADO AL SCROLL
-   ============================================= */
-@keyframes gradientShift {
-  0%   { background-position: 0% 50%; }
-  50%  { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
-
-#main-header.scrolled-header::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 1px;
-  background: linear-gradient(90deg, #6B29A5, #3252E5, #A855F7, #6B29A5);
-  background-size: 300% 100%;
-  animation: gradientShift 4s ease infinite;
-}
-
-/* =============================================
-   SHIMMER TEXT ANIMATION (hero title line 1)
-   ============================================= */
-@keyframes shimmer {
-  0%   { background-position: -200% center; }
-  100% { background-position: 200% center; }
-}
-
-.shimmer-text {
-  background: linear-gradient(
-    90deg,
-    #ffffff 0%,
-    #ffffff 40%,
-    #A855F7 50%,
-    #ffffff 60%,
-    #ffffff 100%
-  );
-  background-size: 200% auto;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  animation: shimmer 4s linear infinite;
-}
-
-/* =============================================
-   PROJECT CARD: CLIP-PATH REVEAL + MOBILE TAP
+   TARJETAS DE PROYECTO (EDITORIAL CARD)
    ============================================= */
 .project-card-item {
-  --clip: inset(0 100% 0 0);
+  border-radius: 1.5rem;
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.4s ease;
 }
 
-.project-card-item.revealed .project-img-inner {
-  animation: clipReveal 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+.project-img-inner {
+  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), filter 0.8s ease;
 }
 
-@keyframes clipReveal {
-  from { clip-path: inset(0 100% 0 0); }
-  to   { clip-path: inset(0 0% 0 0); }
+.project-card-item:hover .project-img-inner {
+  transform: scale(1.04);
 }
 
-/* Mobile tap hint on project cards */
-@media (max-width: 639px) {
-  .project-card-item a::after {
-    content: 'Toca para visitar →';
-    position: absolute;
-    bottom: 12px;
-    left: 50%;
-    transform: translateX(-50%);
-    font-family: 'Space Grotesk', sans-serif;
-    font-size: 11px;
-    font-weight: 600;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: rgba(255,255,255,0.7);
-    background: rgba(11, 9, 20, 0.7);
-    backdrop-filter: blur(8px);
-    padding: 6px 14px;
-    border-radius: 999px;
-    border: 1px solid rgba(255,255,255,0.12);
-    pointer-events: none;
-    white-space: nowrap;
-  }
+/* Badge en la esquina de cada proyecto */
+.project-tag {
+  background: rgba(18, 16, 23, 0.75);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #D8CFBC;
 }
+
 
 /* =============================================
-   FLOATING AMBIENT SPHERES
+   FLOATING DOCK (STICKY BOTTOM ACTION BAR)
    ============================================= */
-@keyframes floatSphere {
-  0%, 100% { transform: translateY(0px) scale(1); }
-  50%       { transform: translateY(-24px) scale(1.04); }
+#floating-dock {
+  will-change: transform, opacity;
 }
 
-.glow-purple { animation: floatSphere 8s ease-in-out infinite; }
-.glow-blue   { animation: floatSphere 10s ease-in-out infinite reverse; }
-
-/* =============================================
-   VIDEO SHOWCASE SECTION
-   ============================================= */
-.video-showcase-section {
-  border-top: 1px solid rgba(255,255,255,0.05);
-  border-bottom: 1px solid rgba(255,255,255,0.05);
-}
-
-/* =============================================
-   MOBILE-FIRST GENERAL IMPROVEMENTS
-   ============================================= */
-
-/* Tighter spacing on mobile for sections */
-@media (max-width: 639px) {
-  section {
-    padding-top: 4rem;
-    padding-bottom: 4rem;
+/* Pulsing Status Dot */
+@keyframes beaconPulse {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(52, 211, 153, 0.7);
   }
-
-  /* Hero metrics smaller on very small screens */
-  .hero-stats {
-    max-width: 100%;
-    padding-top: 1.5rem;
-    margin-top: 1.25rem;
-    gap: 1rem;
-  }
-
-  /* Marquee slightly slower on mobile for readability */
-  .marquee-track {
-    animation-duration: 20s;
-  }
-
-  /* Footer headline more proportional on small screens */
-  .footer-headline-wrap h2 span {
-    font-size: clamp(2.5rem, 14vw, 5rem);
-  }
-
-  /* Larger tap targets for mobile menu links */
-  .mobile-nav-link {
-    padding: 0.75rem 0;
-    min-height: 48px;
-    display: flex;
-    align-items: center;
+  50% {
+    box-shadow: 0 0 0 7px rgba(52, 211, 153, 0);
   }
 }
 
-/* =============================================
-   HERO BADGE PULSE DOT GLOW
-   ============================================= */
-@keyframes badgeDotPulse {
-  0%, 100% { box-shadow: 0 0 0 0 rgba(107,41,165,0.8); }
-  50%       { box-shadow: 0 0 0 6px rgba(107,41,165,0); }
-}
-
-.hero-badge span:first-child {
-  animation: badgeDotPulse 2s ease-in-out infinite;
-}
-
-/* =============================================
-   PROJECT META: MOBILE STACK
-   ============================================= */
-@media (max-width: 639px) {
-  .project-meta .flex.items-center.justify-between {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 0.5rem;
-  }
+.status-beacon-dot {
+  animation: beaconPulse 2.2s infinite ease-in-out;
 }

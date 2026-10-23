@@ -9,10 +9,10 @@
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="recursos/logo-blanco.png">
 
-  <!-- Google Fonts: Space Grotesk & Inter -->
+  <!-- Google Fonts: Plus Jakarta Sans (Editorial/Monumental), Space Grotesk, Inter -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -22,16 +22,18 @@
         extend: {
           colors: {
             vintra: {
-              bg: '#0B0914',
-              card: '#120E24',
-              surface: '#181330',
-              muted: '#9A96A8',
+              bg: '#0A090D',
+              surface: '#121017',
+              card: '#16141D',
+              sand: '#D8CFBC',
+              sandLight: '#EAE5D9',
+              muted: '#8E897E',
               purple: '#6B29A5',
               blue: '#3252E5',
-              light: '#FFFFFF'
             }
           },
           fontFamily: {
+            editorial: ['"Plus Jakarta Sans"', 'sans-serif'],
             space: ['"Space Grotesk"', 'sans-serif'],
             inter: ['Inter', 'sans-serif']
           }
@@ -43,44 +45,44 @@
   <!-- Lenis Smooth Scroll CSS -->
   <link rel="stylesheet" href="https://unpkg.com/lenis@1.1.9/dist/lenis.css">
   
-  <!-- Custom Editorial CSS -->
+  <!-- Custom Editorial CSS (Marcus Lorenzet Vibe) -->
   <link rel="stylesheet" href="css/custom.css">
 </head>
-<body class="bg-[#0B0914] text-white font-inter selection:bg-[#6B29A5] selection:text-white antialiased overflow-x-hidden">
+<body class="bg-[#0A090D] text-[#EAE5D9] font-inter antialiased overflow-x-hidden selection:bg-[#D8CFBC] selection:text-[#0A090D]">
 
   <!-- Custom Cursor (desktop only) -->
   <div id="custom-cursor" class="custom-cursor" aria-hidden="true"></div>
   <div id="custom-cursor-dot" class="custom-cursor-dot" aria-hidden="true"></div>
 
-  <!-- Subtle Film Grain Noise Overlay -->
+  <!-- Film Grain Noise Overlay -->
   <div class="noise-overlay" aria-hidden="true"></div>
 
-  <!-- Ambient Glowing Background Spheres -->
-  <div class="fixed top-0 left-1/4 w-[500px] h-[500px] glow-purple rounded-full blur-3xl pointer-events-none -z-10 opacity-40" aria-hidden="true"></div>
-  <div class="fixed bottom-1/3 right-0 w-[450px] h-[450px] glow-blue rounded-full blur-3xl pointer-events-none -z-10 opacity-35" aria-hidden="true"></div>
+  <!-- Ambient Cinematic Glows -->
+  <div class="fixed top-0 left-1/4 w-[550px] h-[550px] glow-purple rounded-full blur-3xl pointer-events-none -z-10 opacity-30" aria-hidden="true"></div>
+  <div class="fixed bottom-1/3 right-0 w-[500px] h-[500px] glow-blue rounded-full blur-3xl pointer-events-none -z-10 opacity-25" aria-hidden="true"></div>
 
   <!-- =========================================================================
-       HEADER: Fondo transparente, logo a la izquierda y menú hamburguesa minimalista
+       HEADER: Transparente, minimalista, logo a la izquierda y menú a la derecha
        ========================================================================= -->
-  <header id="main-header" class="fixed top-0 left-0 w-full z-50 transition-all duration-300 py-5 bg-transparent relative overflow-hidden">
+  <header id="main-header" class="fixed top-0 left-0 w-full z-50 transition-all duration-300 py-5 bg-transparent overflow-hidden">
     <div class="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
       
-      <!-- Logo a la izquierda (recursos/logo-blanco.png) -->
-      <a href="#hero" class="flex items-center gap-3 group focus:outline-none focus-visible:ring-2 focus-visible:ring-[#6B29A5] rounded-lg" aria-label="Inicio Vintra">
-        <div class="w-9 h-9 sm:w-10 sm:h-10 rounded-full overflow-hidden flex items-center justify-center bg-black/40 border border-white/10 group-hover:border-[#6B29A5] transition-colors">
+      <!-- Logo a la izquierda -->
+      <a href="#hero" class="flex items-center gap-3 group focus:outline-none" aria-label="Inicio Vintra">
+        <div class="w-9 h-9 sm:w-10 sm:h-10 rounded-full overflow-hidden flex items-center justify-center bg-black/40 border border-white/10 group-hover:border-[#D8CFBC] transition-colors">
           <img src="recursos/logo-blanco.png" alt="Vintra Logo" class="w-full h-full object-cover mix-blend-screen scale-110">
         </div>
-        <span class="font-space font-bold text-lg sm:text-xl tracking-tight text-white group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-white group-hover:to-[#9A96A8] transition-all">
+        <span class="font-editorial font-bold text-lg sm:text-xl tracking-tight text-white group-hover:text-[#D8CFBC] transition-colors uppercase">
           VINTRA
         </span>
       </a>
 
-      <!-- Menú Hamburguesa a la derecha (Muy minimalista) -->
-      <button id="menu-toggle" class="relative z-50 flex items-center justify-center w-11 h-11 rounded-full bg-white/[0.04] hover:bg-white/[0.08] border border-white/10 hover:border-white/20 transition-all text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-[#6B29A5]" aria-label="Abrir Menú" aria-expanded="false">
+      <!-- Menú Hamburguesa Minimalista -->
+      <button id="menu-toggle" class="relative z-50 flex items-center justify-center w-11 h-11 rounded-full bg-white/[0.04] hover:bg-white/[0.08] border border-white/10 hover:border-[#D8CFBC]/40 transition-all text-white focus:outline-none" aria-label="Abrir Menú" aria-expanded="false">
         <div class="w-5 flex flex-col items-end gap-1.5 pointer-events-none">
-          <span class="w-5 h-[1.5px] bg-white rounded-full transition-all duration-300"></span>
-          <span class="w-3.5 h-[1.5px] bg-white rounded-full transition-all duration-300"></span>
-          <span class="w-4 h-[1.5px] bg-white rounded-full transition-all duration-300"></span>
+          <span class="w-5 h-[1.5px] bg-[#EAE5D9] rounded-full transition-all duration-300"></span>
+          <span class="w-3.5 h-[1.5px] bg-[#EAE5D9] rounded-full transition-all duration-300"></span>
+          <span class="w-4 h-[1.5px] bg-[#EAE5D9] rounded-full transition-all duration-300"></span>
         </div>
       </button>
 
@@ -88,18 +90,16 @@
   </header>
 
   <!-- =========================================================================
-       MENÚ MÓVIL FULLSCREEN: Pantalla completa con fondo oscuro y enlaces grandes
+       MENÚ FULLSCREEN
        ========================================================================= -->
-  <div id="mobile-menu" class="fixed inset-0 z-50 bg-[#0B0914] opacity-0 pointer-events-none transition-opacity duration-400 ease-out flex flex-col justify-between p-6 sm:p-12" aria-hidden="true">
+  <div id="mobile-menu" class="fixed inset-0 z-50 bg-[#0A090D] opacity-0 pointer-events-none transition-opacity duration-400 ease-out flex flex-col justify-between p-6 sm:p-12" aria-hidden="true">
     
-    <!-- Header dentro del menú -->
     <div class="flex items-center justify-between border-b border-white/10 pb-6">
       <div class="flex items-center gap-3">
         <img src="recursos/logo-blanco.png" alt="Vintra" class="w-8 h-8 object-cover mix-blend-screen">
-        <span class="font-space font-bold tracking-tight text-white text-lg">VINTRA</span>
+        <span class="font-editorial font-bold tracking-tight text-white text-lg">VINTRA</span>
       </div>
       
-      <!-- Botón de Cerrar Minimalista -->
       <button id="menu-close" class="w-11 h-11 rounded-full bg-white/[0.06] hover:bg-white/[0.12] border border-white/15 flex items-center justify-center text-white transition-all focus:outline-none" aria-label="Cerrar Menú">
         <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
@@ -107,43 +107,52 @@
       </button>
     </div>
 
-    <!-- Enlaces Grandes (Space Grotesk Monumental) -->
     <nav class="my-auto py-8 flex flex-col gap-6 sm:gap-8 max-w-4xl mx-auto w-full" aria-label="Navegación Pantalla Completa">
       
       <a href="#proyectos" class="mobile-nav-link menu-anim-item group flex items-baseline justify-between border-b border-white/5 pb-4">
         <div class="flex items-baseline gap-4">
-          <span class="font-mono text-xs sm:text-sm text-[#9A96A8]">01.</span>
-          <span class="font-space font-bold text-4xl sm:text-6xl text-white group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-white group-hover:to-[#9A96A8] transition-all uppercase">
+          <span class="font-mono text-xs sm:text-sm text-[#8E897E]">01.</span>
+          <span class="font-editorial font-extrabold text-4xl sm:text-6xl text-white group-hover:text-[#D8CFBC] transition-all uppercase">
             PROYECTOS
           </span>
         </div>
-        <span class="text-xs text-[#9A96A8] font-mono group-hover:translate-x-2 transition-transform">VER CASOS &rarr;</span>
+        <span class="text-xs text-[#D8CFBC] font-mono group-hover:translate-x-2 transition-transform">VER CASOS &rarr;</span>
+      </a>
+
+      <a href="#vision" class="mobile-nav-link menu-anim-item group flex items-baseline justify-between border-b border-white/5 pb-4">
+        <div class="flex items-baseline gap-4">
+          <span class="font-mono text-xs sm:text-sm text-[#8E897E]">02.</span>
+          <span class="font-editorial font-extrabold text-4xl sm:text-6xl text-white group-hover:text-[#D8CFBC] transition-all uppercase">
+            VISIÓN
+          </span>
+        </div>
+        <span class="text-xs text-[#D8CFBC] font-mono group-hover:translate-x-2 transition-transform">LO QUE HACEMOS &rarr;</span>
       </a>
 
       <a href="#nosotros" class="mobile-nav-link menu-anim-item group flex items-baseline justify-between border-b border-white/5 pb-4">
         <div class="flex items-baseline gap-4">
-          <span class="font-mono text-xs sm:text-sm text-[#9A96A8]">02.</span>
-          <span class="font-space font-bold text-4xl sm:text-6xl text-white group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-white group-hover:to-[#9A96A8] transition-all uppercase">
+          <span class="font-mono text-xs sm:text-sm text-[#8E897E]">03.</span>
+          <span class="font-editorial font-extrabold text-4xl sm:text-6xl text-white group-hover:text-[#D8CFBC] transition-all uppercase">
             NOSOTROS
           </span>
         </div>
-        <span class="text-xs text-[#9A96A8] font-mono group-hover:translate-x-2 transition-transform">NUESTRA HISTORIA &rarr;</span>
+        <span class="text-xs text-[#D8CFBC] font-mono group-hover:translate-x-2 transition-transform">EQUIPO &rarr;</span>
       </a>
 
       <a href="#servicios" class="mobile-nav-link menu-anim-item group flex items-baseline justify-between border-b border-white/5 pb-4">
         <div class="flex items-baseline gap-4">
-          <span class="font-mono text-xs sm:text-sm text-[#9A96A8]">03.</span>
-          <span class="font-space font-bold text-4xl sm:text-6xl text-white group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-white group-hover:to-[#9A96A8] transition-all uppercase">
+          <span class="font-mono text-xs sm:text-sm text-[#8E897E]">04.</span>
+          <span class="font-editorial font-extrabold text-4xl sm:text-6xl text-white group-hover:text-[#D8CFBC] transition-all uppercase">
             SERVICIOS
           </span>
         </div>
-        <span class="text-xs text-[#9A96A8] font-mono group-hover:translate-x-2 transition-transform">CAPACIDADES &rarr;</span>
+        <span class="text-xs text-[#D8CFBC] font-mono group-hover:translate-x-2 transition-transform">CAPACIDADES &rarr;</span>
       </a>
 
       <a href="#contacto" class="mobile-nav-link menu-anim-item group flex items-baseline justify-between border-b border-white/5 pb-4">
         <div class="flex items-baseline gap-4">
-          <span class="font-mono text-xs sm:text-sm text-[#9A96A8]">04.</span>
-          <span class="font-space font-bold text-4xl sm:text-6xl text-white group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-white group-hover:to-[#9A96A8] transition-all uppercase">
+          <span class="font-mono text-xs sm:text-sm text-[#8E897E]">05.</span>
+          <span class="font-editorial font-extrabold text-4xl sm:text-6xl text-white group-hover:text-[#D8CFBC] transition-all uppercase">
             CONTACTO
           </span>
         </div>
@@ -152,10 +161,9 @@
 
     </nav>
 
-    <!-- Footer dentro del Menú -->
-    <div class="border-t border-white/10 pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[#9A96A8]">
+    <div class="border-t border-white/10 pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[#8E897E]">
       <span>TECNOLOGÍA QUE POTENCIA TU MARCA</span>
-      <button onclick="openVintraWhatsApp('general'); closeMobileMenu();" class="text-white hover:text-emerald-400 font-mono transition-colors">
+      <button onclick="openVintraWhatsApp('general'); closeMobileMenu();" class="text-[#D8CFBC] hover:text-white font-mono transition-colors">
         INICIAR CONVERSACIÓN POR WHATSAPP &rarr;
       </button>
     </div>
@@ -163,75 +171,80 @@
   </div>
 
   <!-- =========================================================================
-       HERO (PORTADA): Video de fondo o fallback con glow, Título gigante, Subtítulo y Botón degradado
+       HERO (PORTADA): Inspirado en Marcus Lorenzet (Bold, Editorial, Champagne Tone)
        ========================================================================= -->
-  <section id="hero" class="relative min-h-[100svh] flex flex-col justify-center items-center text-center px-4 sm:px-6 lg:px-8 pt-20 sm:pt-24 pb-12 sm:pb-16 overflow-hidden">
+  <section id="hero" class="relative min-h-[100svh] flex flex-col justify-center items-center text-center px-4 sm:px-6 lg:px-8 pt-24 pb-14 overflow-hidden">
     
-    <!-- Fondo: Video de la marca (recursos/Logo_Espiral_vintra.mp4) con alta visibilidad y contraste -->
-    <div class="absolute inset-0 w-full h-full overflow-hidden pointer-events-none -z-10 bg-[#0B0914]">
-      <video id="hero-video" autoplay muted loop playsinline preload="auto" class="w-full h-full object-cover opacity-75 sm:opacity-70 scale-105 filter brightness-110 contrast-105 will-change-transform">
+    <!-- Fondo: Video de la espiral con contraste cinemático -->
+    <div class="absolute inset-0 w-full h-full overflow-hidden pointer-events-none -z-10 bg-[#0A090D]">
+      <video id="hero-video" autoplay muted loop playsinline preload="auto" class="w-full h-full object-cover opacity-65 scale-105 filter brightness-105 contrast-110 will-change-transform">
         <source src="recursos/Logo_Espiral_vintra.mp4" type="video/mp4">
         <source src="recursos/video-hero.mp4" type="video/mp4">
       </video>
 
-      <!-- Scrim de contraste: Permite que el video de la espiral se vea claramente mientras el texto mantiene máxima legibilidad -->
-      <div class="absolute inset-0 bg-gradient-to-b from-[#0B0914]/70 via-[#0B0914]/40 to-[#0B0914]"></div>
-      <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_25%,#0B0914_92%)]"></div>
+      <!-- Scrims cinemáticos oscuros -->
+      <div class="absolute inset-0 bg-gradient-to-b from-[#0A090D]/80 via-[#0A090D]/50 to-[#0A090D]"></div>
+      <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_20%,#0A090D_90%)]"></div>
 
-      <!-- Fallback en caso de que el video no cargue -->
-      <div id="hero-fallback-glow" class="hidden absolute inset-0 bg-[#0B0914]">
-        <div class="absolute inset-0 glow-purple opacity-60"></div>
-        <div class="absolute inset-0 glow-blue opacity-50"></div>
+      <!-- Fallback -->
+      <div id="hero-fallback-glow" class="hidden absolute inset-0 bg-[#0A090D]">
+        <div class="absolute inset-0 glow-purple opacity-40"></div>
+        <div class="absolute inset-0 glow-blue opacity-35"></div>
       </div>
     </div>
 
-    <!-- Contenido Central del Hero (Mobile-First) -->
-    <div class="w-full max-w-5xl mx-auto flex flex-col items-center my-auto">
+    <!-- Contenido Hero -->
+    <div class="w-full max-w-5xl mx-auto flex flex-col items-center my-auto z-10">
       
       <!-- Pill Badge Editorial -->
-      <div class="hero-badge inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/[0.04] border border-white/10 backdrop-blur-md mb-6 sm:mb-8">
-        <span class="w-2 h-2 rounded-full bg-[#6B29A5] shadow-[0_0_8px_#6B29A5]"></span>
-        <span class="font-mono text-[11px] sm:text-xs uppercase tracking-widest text-[#9A96A8]">
+      <div class="hero-badge-pill inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-white/[0.04] border border-white/10 backdrop-blur-md mb-6 sm:mb-8">
+        <span class="w-2 h-2 rounded-full bg-[#D8CFBC] shadow-[0_0_8px_#D8CFBC]"></span>
+        <span class="font-mono text-[11px] sm:text-xs uppercase tracking-widest text-[#D8CFBC]">
           ESTUDIO DIGITAL // TRES SOCIOS TECNOLÓGICOS
         </span>
       </div>
 
-      <!-- TÍTULO GIGANTE: TECNOLOGÍA QUE POTENCIA TU MARCA -->
-      <h1 class="font-space font-bold uppercase text-[clamp(2.4rem,10vw,7rem)] tracking-tight leading-[0.92] text-white mb-5 sm:mb-6">
-        <span class="hero-title-line block shimmer-text">TECNOLOGÍA QUE</span>
-        <span class="hero-title-line block bg-gradient-to-r from-[#A855F7] via-[#6B29A5] to-[#3252E5] bg-clip-text text-transparent">
-          POTENCIA TU MARCA
+      <!-- TÍTULO MONUMENTAL (Estilo Marcus Lorenzet con Máscara Reveal) -->
+      <h1 class="font-editorial font-extrabold uppercase text-[clamp(2.4rem,9vw,6.5rem)] tracking-tight leading-[0.92] text-[#EAE5D9] mb-6">
+        <span class="block overflow-hidden">
+          <span class="hero-mask-line block">TECNOLOGÍA QUE</span>
+        </span>
+        <span class="block overflow-hidden">
+          <span class="hero-mask-line block text-[#D8CFBC] flex items-center justify-center gap-2 sm:gap-3">
+            POTENCIA TU MARCA <span class="square-accent"></span>
+          </span>
         </span>
       </h1>
 
       <!-- SUBTÍTULO -->
-      <p class="hero-desc text-sm sm:text-xl md:text-2xl text-[#9A96A8] font-normal max-w-2xl leading-relaxed mb-8 sm:mb-10 px-2 sm:px-0">
-        Diseñamos páginas web y campañas de publicidad que no pasan desapercibidas.
+      <p class="hero-sub-p text-sm sm:text-lg md:text-xl text-[#8E897E] font-normal max-w-2xl leading-relaxed mb-9 px-2">
+        Diseñamos páginas web y campañas de publicidad que no pasan desapercibidas. Hechas al detalle para marcas que buscan trascender.
       </p>
 
-      <!-- BOTÓN CON DEGRADADO: "Ver Proyectos" -->
-      <div class="hero-cta-btn flex flex-col sm:flex-row items-center gap-4">
-        <a href="#proyectos" class="magnetic-btn group inline-flex items-center justify-center px-8 sm:px-10 py-4 sm:py-5 rounded-2xl bg-vintra-gradient hover:bg-vintra-gradient-hover text-white font-space font-bold uppercase text-sm sm:text-base tracking-wider transition-all duration-300 shadow-[0_0_30px_rgba(107,41,165,0.4)] hover:shadow-[0_0_45px_rgba(50,82,229,0.6)] hover:-translate-y-0.5">
+      <!-- BOTONES DE ACCIÓN: Sand Pill + Dark Editorial -->
+      <div class="hero-actions-group flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto px-4 sm:px-0">
+        <a href="#proyectos" class="btn-sand w-full sm:w-auto px-8 sm:px-10 py-4 sm:py-4.5 rounded-full uppercase text-xs sm:text-sm tracking-wider flex items-center justify-center gap-2 shadow-lg">
           <span>VER PROYECTOS</span>
-          <svg class="w-5 h-5 ml-3 group-hover:translate-x-1.5 transition-transform duration-300" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M19 14l-7 7m0 0l-7-7m7 7V3"/>
-          </svg>
+          <span class="text-base">&darr;</span>
         </a>
+        <button onclick="openVintraWhatsApp('general')" class="btn-dark-editorial w-full sm:w-auto px-8 sm:px-10 py-4 sm:py-4.5 rounded-full uppercase text-xs sm:text-sm tracking-wider flex items-center justify-center gap-2 font-mono">
+          <span>HABLEMOS DIRECTO</span> &rarr;
+        </button>
       </div>
 
-      <!-- MÉTRICAS ANIMADAS -->
-      <div class="hero-stats grid grid-cols-3 gap-6 sm:gap-12 pt-10 mt-6 border-t border-white/10 w-full max-w-sm sm:max-w-md">
+      <!-- MÉTRICAS EDITORIALES -->
+      <div class="hero-stats-row grid grid-cols-3 gap-6 sm:gap-12 pt-10 mt-8 border-t border-white/10 w-full max-w-sm sm:max-w-md">
         <div class="text-center">
-          <span class="block font-space font-bold text-3xl sm:text-4xl text-white counter" data-target="4">0</span>
-          <span class="block font-mono text-[10px] uppercase tracking-widest text-[#9A96A8] mt-1">Proyectos</span>
+          <span class="block font-editorial font-bold text-3xl sm:text-4xl text-[#EAE5D9] stat-counter" data-target="4">0</span>
+          <span class="block font-mono text-[10px] uppercase tracking-widest text-[#8E897E] mt-1">Proyectos</span>
         </div>
         <div class="text-center border-x border-white/10">
-          <span class="block font-space font-bold text-3xl sm:text-4xl text-white counter" data-target="3">0</span>
-          <span class="block font-mono text-[10px] uppercase tracking-widest text-[#9A96A8] mt-1">Socios</span>
+          <span class="block font-editorial font-bold text-3xl sm:text-4xl text-[#EAE5D9] stat-counter" data-target="3">0</span>
+          <span class="block font-mono text-[10px] uppercase tracking-widest text-[#8E897E] mt-1">Socios</span>
         </div>
         <div class="text-center">
-          <span class="block font-space font-bold text-3xl sm:text-4xl text-white"><span class="counter" data-target="100">0</span>%</span>
-          <span class="block font-mono text-[10px] uppercase tracking-widest text-[#9A96A8] mt-1">Satisfacción</span>
+          <span class="block font-editorial font-bold text-3xl sm:text-4xl text-[#EAE5D9]"><span class="stat-counter" data-target="100">0</span>%</span>
+          <span class="block font-mono text-[10px] uppercase tracking-widest text-[#8E897E] mt-1">Compromiso</span>
         </div>
       </div>
 
@@ -240,86 +253,98 @@
   </section>
 
   <!-- =========================================================================
-       MARQUEE / TICKER HORIZONTAL ANIMADO
+       MARQUEE TICKER HORIZONTAL
        ========================================================================= -->
-  <div class="marquee-strip w-full overflow-hidden border-y border-white/10 py-4 bg-[#0D0A1A] relative" aria-hidden="true">
+  <div class="marquee-strip w-full overflow-hidden border-y border-white/10 py-3.5 bg-[#0D0C12] relative" aria-hidden="true">
     <div class="marquee-track flex whitespace-nowrap">
-      <span class="marquee-content flex gap-10 pr-10 font-mono text-xs uppercase tracking-widest text-[#9A96A8]">
-        <span>✦ Diseño Web</span>
-        <span>✦ Publicidad Digital</span>
-        <span>✦ Meta Ads</span>
-        <span>✦ Branding</span>
-        <span>✦ Estrategia</span>
-        <span>✦ SEO</span>
-        <span>✦ Landing Pages</span>
-        <span>✦ E-Commerce</span>
-        <span>✦ Campañas</span>
-        <span>✦ Identidad Visual</span>
+      <span class="marquee-content flex gap-10 pr-10 font-mono text-xs uppercase tracking-widest text-[#8E897E]">
+        <span>✦ DISEÑO WEB DE ALTA CONVERSIÓN</span>
+        <span>✦ PUBLICIDAD DIGITAL & META ADS</span>
+        <span>✦ BRANDING & IDENTIDAD</span>
+        <span>✦ DESARROLLO A MEDIDA</span>
+        <span>✦ E-COMMERCE ESCALABLE</span>
+        <span>✦ OPTIMIZACIÓN & SEO</span>
       </span>
-      <span class="marquee-content flex gap-10 pr-10 font-mono text-xs uppercase tracking-widest text-[#9A96A8]" aria-hidden="true">
-        <span>✦ Diseño Web</span>
-        <span>✦ Publicidad Digital</span>
-        <span>✦ Meta Ads</span>
-        <span>✦ Branding</span>
-        <span>✦ Estrategia</span>
-        <span>✦ SEO</span>
-        <span>✦ Landing Pages</span>
-        <span>✦ E-Commerce</span>
-        <span>✦ Campañas</span>
-        <span>✦ Identidad Visual</span>
+      <span class="marquee-content flex gap-10 pr-10 font-mono text-xs uppercase tracking-widest text-[#8E897E]" aria-hidden="true">
+        <span>✦ DISEÑO WEB DE ALTA CONVERSIÓN</span>
+        <span>✦ PUBLICIDAD DIGITAL & META ADS</span>
+        <span>✦ BRANDING & IDENTIDAD</span>
+        <span>✦ DESARROLLO A MEDIDA</span>
+        <span>✦ E-COMMERCE ESCALABLE</span>
+        <span>✦ OPTIMIZACIÓN & SEO</span>
       </span>
     </div>
   </div>
 
   <!-- =========================================================================
-       SECCIÓN DE PROYECTOS (GALERÍA): Lista vertical de 5 proyectos a todo el ancho (full-width)
+       NUEVA SECCIÓN MARCUS LORENZET: "LO QUE HACEMOS" CON TEXT SCRUBBER ANIMADO
+       Cada palabra se ilumina suavemente conforme el usuario hace scroll
        ========================================================================= -->
-  <section id="proyectos" class="py-24 sm:py-32 w-full border-t border-white/5 relative">
+  <section id="vision" class="py-24 sm:py-36 px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto">
+    <div class="mb-5 flex items-center gap-2.5">
+      <span class="w-2 h-2 bg-[#D8CFBC] rounded-sm"></span>
+      <span class="font-mono text-xs uppercase tracking-widest text-[#D8CFBC]">[ LO QUE HACEMOS ]</span>
+    </div>
+
+    <!-- El texto animado por GSAP ScrollTrigger palabra por palabra -->
+    <h2 class="text-scrub-trigger font-editorial font-extrabold text-2xl sm:text-4xl md:text-5xl text-[#EAE5D9] leading-[1.14] tracking-tight">
+      Diseñamos páginas web y experiencias digitales de alto impacto, creadas al detalle para empresas y marcas que buscan sobresalir.
+    </h2>
+
+    <div class="flex flex-wrap items-center gap-4 sm:gap-8 mt-10 pt-6 border-t border-white/10 font-mono text-xs text-[#8E897E] uppercase tracking-wider">
+      <span>✦ TECNOLOGÍA QUE CONVIERTE</span>
+      <span>✦ EXPERIENCIAS ESCALABLES</span>
+      <span>✦ ATENCIÓN DIRECTA</span>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       SECCIÓN DE PROYECTOS: Galería Vertical Editorial de 4 Proyectos
+       ========================================================================= -->
+  <section id="proyectos" class="py-20 sm:py-32 w-full border-t border-white/5 relative">
     
-    <!-- Cabecera de la Galería -->
-    <div class="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-12 sm:mb-20 section-reveal">
+    <!-- Cabecera de Proyectos -->
+    <div class="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-12 sm:mb-20">
       <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 pb-6 border-b border-white/10">
         <div>
-          <span class="font-mono text-xs uppercase tracking-widest text-[#9A96A8] block mb-2">
+          <span class="font-mono text-xs uppercase tracking-widest text-[#D8CFBC] block mb-2">
             [ CASOS DE ESTUDIO ]
           </span>
-          <h2 class="font-space font-bold uppercase text-3xl sm:text-5xl md:text-6xl text-white tracking-tight">
-            PROYECTOS <span class="text-gradient">SELECCIONADOS</span>
+          <h2 class="font-editorial font-extrabold uppercase text-3xl sm:text-5xl md:text-6xl text-[#EAE5D9] tracking-tight flex items-center gap-2">
+            PROYECTOS SELECCIONADOS <span class="square-accent"></span>
           </h2>
         </div>
-        <p class="text-xs sm:text-sm text-[#9A96A8] max-w-xs font-mono">
+        <p class="text-xs sm:text-sm text-[#8E897E] max-w-xs font-mono">
           4 PROYECTOS // EXPERIENCIAS DIGITALES A MEDIDA
         </p>
       </div>
     </div>
 
-    <!-- Lista Vertical de 5 Proyectos a Todo el Ancho -->
-    <div class="w-full flex flex-col gap-16 sm:gap-24">
+    <!-- Lista Vertical de Tarjetas -->
+    <div class="w-full flex flex-col gap-16 sm:gap-28 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       
-      <!-- PROYECTO 1: CREIBYT (Enlace a https://creibyt.netlify.app/) -->
-      <article class="project-card-item w-full relative group">
+      <!-- PROYECTO 1: CREIBYT -->
+      <article class="project-card-item w-full relative group overflow-hidden bg-[#121017] border border-white/10 rounded-2xl sm:rounded-3xl shadow-2xl">
         <a href="https://creibyt.netlify.app/" target="_blank" rel="noopener noreferrer" class="block w-full focus:outline-none" aria-label="Visitar proyecto Creibyt Gimnasio">
           
-          <!-- Contenedor a todo el ancho con object-cover -->
-          <div class="w-full h-[60vh] sm:h-[75vh] min-h-[480px] relative overflow-hidden bg-[#100D1F] border-y border-white/10">
-            <img src="recursos/proyecto-creibyt.jpg" alt="Creibyt Gimnasio - Plataforma Web" class="project-img-inner w-full h-full object-cover object-top filter brightness-95 group-hover:scale-105 group-hover:brightness-105 transition-all duration-700 ease-out">
-            <!-- Scrim degradado sutil -->
-            <div class="absolute inset-0 bg-gradient-to-t from-[#0B0914] via-[#0B0914]/40 to-transparent"></div>
+          <div class="w-full h-[55vh] sm:h-[72vh] min-h-[420px] relative overflow-hidden bg-[#16141E]">
+            <img src="recursos/proyecto-creibyt.jpg" alt="Creibyt Gimnasio - Plataforma Web" class="project-img-inner w-full h-full object-cover object-top filter brightness-95 group-hover:brightness-105">
+            <div class="absolute inset-0 bg-gradient-to-t from-[#121017] via-[#121017]/30 to-transparent"></div>
           </div>
 
-          <!-- Título elegante y pequeño justo debajo / superpuesto -->
-          <div class="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-5 project-meta">
-            <div class="flex items-center justify-between border-b border-white/10 pb-4">
+          <!-- Metadatos de la tarjeta -->
+          <div class="w-full p-5 sm:p-7 bg-[#121017] border-t border-white/10">
+            <div class="flex items-center justify-between">
               <div class="flex items-center gap-3">
-                <span class="font-mono text-xs text-[#9A96A8]">01</span>
-                <h3 class="font-space font-bold uppercase text-lg sm:text-xl text-white tracking-wide group-hover:text-[#A855F7] transition-colors">
-                  CREYBIT GIMNASIO
+                <span class="font-mono text-xs text-[#D8CFBC]">[ 01 ]</span>
+                <h3 class="font-editorial font-bold uppercase text-lg sm:text-2xl text-[#EAE5D9] tracking-tight group-hover:text-[#D8CFBC] transition-colors">
+                  CREIBYT GIMNASIO
                 </h3>
-                <span class="text-xs text-[#9A96A8] font-inter hidden sm:inline-block">
-                  &bull; Web Deportiva & Alta Conversión
+                <span class="text-xs text-[#8E897E] font-mono hidden sm:inline-block">
+                  // Web Deportiva & Alta Conversión
                 </span>
               </div>
-              <span class="text-xs font-mono uppercase tracking-wider text-white group-hover:text-emerald-400 flex items-center gap-1.5 transition-colors">
+              <span class="text-xs font-mono uppercase tracking-wider text-[#D8CFBC] group-hover:text-white flex items-center gap-1.5 transition-colors">
                 <span>VISITAR SITIO</span> &rarr;
               </span>
             </div>
@@ -328,27 +353,27 @@
         </a>
       </article>
 
-      <!-- PROYECTO 2: 333 VIBES (Enlace a https://3vibes.netlify.app/) -->
-      <article class="project-card-item w-full relative group">
+      <!-- PROYECTO 2: 333 VIBES -->
+      <article class="project-card-item w-full relative group overflow-hidden bg-[#121017] border border-white/10 rounded-2xl sm:rounded-3xl shadow-2xl">
         <a href="https://3vibes.netlify.app/" target="_blank" rel="noopener noreferrer" class="block w-full focus:outline-none" aria-label="Visitar proyecto 333 Vibes Tienda Online">
           
-          <div class="w-full h-[60vh] sm:h-[75vh] min-h-[480px] relative overflow-hidden bg-[#100D1F] border-y border-white/10">
-            <img src="recursos/proyecto-3vibes.jpg" alt="333 Vibes - Tienda Online de Moda" class="project-img-inner w-full h-full object-cover object-top filter brightness-95 group-hover:scale-105 group-hover:brightness-105 transition-all duration-700 ease-out">
-            <div class="absolute inset-0 bg-gradient-to-t from-[#0B0914] via-[#0B0914]/40 to-transparent"></div>
+          <div class="w-full h-[55vh] sm:h-[72vh] min-h-[420px] relative overflow-hidden bg-[#16141E]">
+            <img src="recursos/proyecto-3vibes.jpg" alt="333 Vibes - Tienda Online de Moda" class="project-img-inner w-full h-full object-cover object-top filter brightness-95 group-hover:brightness-105">
+            <div class="absolute inset-0 bg-gradient-to-t from-[#121017] via-[#121017]/30 to-transparent"></div>
           </div>
 
-          <div class="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-5 project-meta">
-            <div class="flex items-center justify-between border-b border-white/10 pb-4">
+          <div class="w-full p-5 sm:p-7 bg-[#121017] border-t border-white/10">
+            <div class="flex items-center justify-between">
               <div class="flex items-center gap-3">
-                <span class="font-mono text-xs text-[#9A96A8]">02</span>
-                <h3 class="font-space font-bold uppercase text-lg sm:text-xl text-white tracking-wide group-hover:text-[#A855F7] transition-colors">
+                <span class="font-mono text-xs text-[#D8CFBC]">[ 02 ]</span>
+                <h3 class="font-editorial font-bold uppercase text-lg sm:text-2xl text-[#EAE5D9] tracking-tight group-hover:text-[#D8CFBC] transition-colors">
                   333 VIBES
                 </h3>
-                <span class="text-xs text-[#9A96A8] font-inter hidden sm:inline-block">
-                  &bull; E-Commerce de Moda & Catálogo Dinámico
+                <span class="text-xs text-[#8E897E] font-mono hidden sm:inline-block">
+                  // E-Commerce de Moda & Catálogo Dinámico
                 </span>
               </div>
-              <span class="text-xs font-mono uppercase tracking-wider text-white group-hover:text-emerald-400 flex items-center gap-1.5 transition-colors">
+              <span class="text-xs font-mono uppercase tracking-wider text-[#D8CFBC] group-hover:text-white flex items-center gap-1.5 transition-colors">
                 <span>VISITAR TIENDA</span> &rarr;
               </span>
             </div>
@@ -357,291 +382,215 @@
         </a>
       </article>
 
-      <!-- PROYECTO 3: VIEJO ALGARROBO (Enlace a https://hospedaje4x4.netlify.app/) -->
-      <article class="project-card-item w-full relative group">
-        <a href="https://hospedaje4x4.netlify.app/" target="_blank" rel="noopener noreferrer" class="block w-full focus:outline-none" aria-label="Visitar proyecto Viejo Algarrobo Hospedaje 4x4">
-          <div class="w-full h-[60vh] sm:h-[75vh] min-h-[480px] relative overflow-hidden bg-[#100D1F] border-y border-white/10">
-            <img src="recursos/algarrobo.png" alt="Viejo Algarrobo - Hospedaje Rural y Excursiones 4x4" class="project-img-inner w-full h-full object-cover object-top filter brightness-95 group-hover:scale-105 group-hover:brightness-105 transition-all duration-700 ease-out">
-            <div class="absolute inset-0 bg-gradient-to-t from-[#0B0914] via-[#0B0914]/40 to-transparent"></div>
+      <!-- PROYECTO 3: VIEJO ALGARROBO -->
+      <article class="project-card-item w-full relative group overflow-hidden bg-[#121017] border border-white/10 rounded-2xl sm:rounded-3xl shadow-2xl">
+        <a href="https://hospedaje4x4.netlify.app/" target="_blank" rel="noopener noreferrer" class="block w-full focus:outline-none" aria-label="Visitar proyecto Viejo Algarrobo">
+          
+          <div class="w-full h-[55vh] sm:h-[72vh] min-h-[420px] relative overflow-hidden bg-[#16141E]">
+            <img src="recursos/algarrobo.png" alt="Viejo Algarrobo - Hospedaje Rural y Astroturismo" class="project-img-inner w-full h-full object-cover object-top filter brightness-95 group-hover:brightness-105">
+            <div class="absolute inset-0 bg-gradient-to-t from-[#121017] via-[#121017]/30 to-transparent"></div>
           </div>
 
-          <div class="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-5 project-meta">
-            <div class="flex items-center justify-between border-b border-white/10 pb-4">
+          <div class="w-full p-5 sm:p-7 bg-[#121017] border-t border-white/10">
+            <div class="flex items-center justify-between">
               <div class="flex items-center gap-3">
-                <span class="font-mono text-xs text-[#9A96A8]">03</span>
-                <h3 class="font-space font-bold uppercase text-lg sm:text-xl text-white tracking-wide group-hover:text-[#A855F7] transition-colors">
+                <span class="font-mono text-xs text-[#D8CFBC]">[ 03 ]</span>
+                <h3 class="font-editorial font-bold uppercase text-lg sm:text-2xl text-[#EAE5D9] tracking-tight group-hover:text-[#D8CFBC] transition-colors">
                   VIEJO ALGARROBO
                 </h3>
-                <span class="text-xs text-[#9A96A8] font-inter hidden sm:inline-block">
-                  &bull; Hospedaje Rural, Astroturismo & Excursiones 4x4
+                <span class="text-xs text-[#8E897E] font-mono hidden sm:inline-block">
+                  // Hospedaje Rural & Excursiones 4x4
                 </span>
               </div>
-              <span class="text-xs font-mono uppercase tracking-wider text-white group-hover:text-emerald-400 flex items-center gap-1.5 transition-colors">
+              <span class="text-xs font-mono uppercase tracking-wider text-[#D8CFBC] group-hover:text-white flex items-center gap-1.5 transition-colors">
                 <span>VISITAR SITIO</span> &rarr;
               </span>
             </div>
           </div>
+
         </a>
       </article>
 
       <!-- PROYECTO 4: EL CUERVO FOOD TRUCK -->
-      <article class="project-card-item w-full relative group">
+      <article class="project-card-item w-full relative group overflow-hidden bg-[#121017] border border-white/10 rounded-2xl sm:rounded-3xl shadow-2xl">
         <a href="https://el-cuervo-catering--dalekavideos.replit.app/" target="_blank" rel="noopener noreferrer" class="block w-full focus:outline-none" aria-label="Visitar proyecto El Cuervo Food Truck">
-          <div class="w-full h-[60vh] sm:h-[75vh] min-h-[480px] relative overflow-hidden bg-[#100D1F] border-y border-white/10">
-            <img src="recursos/el-cuevo.png" alt="El Cuervo Food Truck - Catering y Gastronomía" class="project-img-inner w-full h-full object-cover object-center filter brightness-95 group-hover:scale-105 group-hover:brightness-105 transition-all duration-700 ease-out">
-            <div class="absolute inset-0 bg-gradient-to-t from-[#0B0914] via-[#0B0914]/40 to-transparent"></div>
+          
+          <div class="w-full h-[55vh] sm:h-[72vh] min-h-[420px] relative overflow-hidden bg-[#16141E]">
+            <img src="recursos/el-cuevo.png" alt="El Cuervo Food Truck - Catering y Gastronomía" class="project-img-inner w-full h-full object-cover object-center filter brightness-95 group-hover:brightness-105">
+            <div class="absolute inset-0 bg-gradient-to-t from-[#121017] via-[#121017]/30 to-transparent"></div>
           </div>
 
-          <div class="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-5 project-meta">
-            <div class="flex items-center justify-between border-b border-white/10 pb-4">
+          <div class="w-full p-5 sm:p-7 bg-[#121017] border-t border-white/10">
+            <div class="flex items-center justify-between">
               <div class="flex items-center gap-3">
-                <span class="font-mono text-xs text-[#9A96A8]">04</span>
-                <h3 class="font-space font-bold uppercase text-lg sm:text-xl text-white tracking-wide group-hover:text-[#A855F7] transition-colors">
+                <span class="font-mono text-xs text-[#D8CFBC]">[ 04 ]</span>
+                <h3 class="font-editorial font-bold uppercase text-lg sm:text-2xl text-[#EAE5D9] tracking-tight group-hover:text-[#D8CFBC] transition-colors">
                   EL CUERVO FOOD TRUCK
                 </h3>
-                <span class="text-xs text-[#9A96A8] font-inter hidden sm:inline-block">
-                  &bull; Catering &amp; Gastronomía Urbana
+                <span class="text-xs text-[#8E897E] font-mono hidden sm:inline-block">
+                  // Catering & Gastronomía Urbana
                 </span>
               </div>
-              <span class="text-xs font-mono uppercase tracking-wider text-white group-hover:text-emerald-400 flex items-center gap-1.5 transition-colors">
+              <span class="text-xs font-mono uppercase tracking-wider text-[#D8CFBC] group-hover:text-white flex items-center gap-1.5 transition-colors">
                 <span>VISITAR SITIO</span> &rarr;
               </span>
             </div>
           </div>
+
         </a>
       </article>
 
-
     </div>
 
   </section>
 
   <!-- =========================================================================
-       SECCIÓN VIDEO SHOWCASE — Personalidad de marca
+       SHOWCASE VIDEO CINEMÁTICO
        ========================================================================= -->
-  <section class="video-showcase-section w-full relative overflow-hidden" aria-label="Video de marca Vintra">
-    <div class="relative w-full aspect-video sm:h-[70vh] min-h-[280px] max-h-[680px] overflow-hidden">
-      <video autoplay muted loop playsinline preload="auto"
-        class="w-full h-full object-cover opacity-90 scale-105"
-        aria-hidden="true">
+  <section class="w-full relative overflow-hidden border-y border-white/10 bg-[#0A090D]" aria-label="Video de marca Vintra">
+    <div class="relative w-full aspect-video sm:h-[70vh] min-h-[300px] max-h-[680px] overflow-hidden">
+      <video autoplay muted loop playsinline preload="auto" class="w-full h-full object-cover opacity-85 scale-105" aria-hidden="true">
         <source src="recursos/video-hero.mp4" type="video/mp4">
       </video>
-      <!-- Overlay gradiente top + bottom para integrar con el fondo oscuro -->
-      <div class="absolute inset-0 bg-gradient-to-b from-[#0B0914] via-transparent to-[#0B0914] opacity-80"></div>
-      <div class="absolute inset-0 bg-gradient-to-r from-[#0B0914]/60 via-transparent to-[#0B0914]/60"></div>
-      <!-- Texto superpuesto centrado -->
+      <div class="absolute inset-0 bg-gradient-to-b from-[#0A090D] via-transparent to-[#0A090D] opacity-80"></div>
+      <div class="absolute inset-0 bg-gradient-to-r from-[#0A090D]/70 via-transparent to-[#0A090D]/70"></div>
+      
       <div class="absolute inset-0 flex flex-col items-center justify-center text-center px-4">
-        <span class="font-mono text-[10px] sm:text-xs uppercase tracking-widest text-[#9A96A8] mb-3 sm:mb-4">[ NUESTRO ESTUDIO ]</span>
-        <p class="font-space font-bold uppercase text-2xl sm:text-4xl md:text-5xl text-white leading-tight tracking-tight max-w-2xl">
-          Donde la <span class="text-gradient">tecnología</span><br>se encuentra con el diseño
+        <span class="font-mono text-[10px] sm:text-xs uppercase tracking-widest text-[#D8CFBC] mb-3">[ NUESTRO ESTUDIO ]</span>
+        <p class="font-editorial font-extrabold uppercase text-2xl sm:text-4xl md:text-5xl text-white leading-tight tracking-tight max-w-2xl">
+          Donde la tecnología se encuentra con el diseño <span class="square-accent"></span>
         </p>
       </div>
     </div>
   </section>
 
   <!-- =========================================================================
-       SECCIÓN NOSOTROS: "No somos una agencia más. Somos tus tres socios tecnológicos."
+       SECCIÓN NOSOTROS: Tres Socios Tecnológicos
        ========================================================================= -->
   <section id="nosotros" class="py-24 sm:py-32 border-t border-white/5 relative overflow-hidden">
-    
-    <div class="w-full max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 section-reveal">
-      
-      <!-- Card Editorial de Manifiesto -->
-      <div class="rounded-3xl p-8 sm:p-14 lg:p-16 bg-[#120E24]/70 border border-white/10 backdrop-blur-xl relative shadow-2xl shadow-purple-950/30">
-        
-        <!-- Glow ambiental interno -->
-        <div class="absolute -top-24 -right-24 w-72 h-72 glow-purple rounded-full blur-3xl pointer-events-none opacity-60"></div>
-        <div class="absolute -bottom-24 -left-24 w-72 h-72 glow-blue rounded-full blur-3xl pointer-events-none opacity-50"></div>
-
-        <span class="font-mono text-xs uppercase tracking-widest text-[#A855F7] block mb-4">
-          [ NUESTRA HISTORIA ]
-        </span>
-
-        <!-- TÍTULO EXACTO SOLICITADO -->
-        <h2 class="font-space font-bold text-3xl sm:text-5xl md:text-6xl text-white tracking-tight leading-tight mb-8">
-          No somos una agencia más. <br class="hidden sm:inline">
-          <span class="bg-gradient-to-r from-[#A855F7] via-[#6B29A5] to-[#3252E5] bg-clip-text text-transparent">
-            Somos tus tres socios tecnológicos.
-          </span>
-        </h2>
-
-        <!-- TEXTO EXACTO SOLICITADO -->
-        <p class="text-base sm:text-xl text-[#9A96A8] leading-relaxed font-normal mb-8">
-          Vintra nació de una charla entre tres amigos que compartían una misma obsesión: ver cómo los buenos negocios se quedaban en el anonimato por no tener una presencia digital a la altura. Nos cansamos de ver emprendimientos increíbles con páginas web que no transmitían nada. Así que decidimos unir nuestras cabezas (y nuestras habilidades) para cambiarlo. No solo creamos páginas web. Diseñamos la imagen completa de tu marca.
-        </p>
-
-        <!-- Tres Pilares / Socios -->
-        <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 pt-8 border-t border-white/10 text-xs sm:text-sm font-space uppercase">
-          <div class="flex items-center gap-3 text-white">
-            <span class="w-2 h-2 rounded-full bg-[#6B29A5]"></span>
-            <span>01. Diseño Visual & Marca</span>
-          </div>
-          <div class="flex items-center gap-3 text-white">
-            <span class="w-2 h-2 rounded-full bg-[#3252E5]"></span>
-            <span>02. Ingeniería Web Rápida</span>
-          </div>
-          <div class="flex items-center gap-3 text-white">
-            <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
-            <span>03. Estrategia & Conversión</span>
-          </div>
-        </div>
-
-      </div>
-
-    </div>
-
-  </section>
-
-  <!-- =========================================================================
-       SECCIÓN SERVICIOS: Dos tarjetas apiladas en móvil
-       Tarjeta 1: "Desarrollo Web"
-       Tarjeta 2: "Publicidad y Estrategia"
-       ========================================================================= -->
-  <section id="servicios" class="py-24 sm:py-32 relative border-t border-white/5">
-    
     <div class="w-full max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
       
-      <div class="mb-14 sm:mb-20 section-reveal text-center sm:text-left">
-        <span class="font-mono text-xs uppercase tracking-widest text-[#9A96A8] block mb-2">
-          [ CÓMO TE AYUDAMOS ]
+      <div class="mb-12">
+        <span class="font-mono text-xs uppercase tracking-widest text-[#D8CFBC] block mb-3">
+          [ SOBRE NOSOTROS ]
         </span>
-        <h2 class="font-space font-bold uppercase text-3xl sm:text-5xl md:text-6xl text-white tracking-tight">
-          NUESTROS <span class="text-gradient">SERVICIOS</span>
+        <h2 class="font-editorial font-extrabold uppercase text-3xl sm:text-5xl text-white tracking-tight leading-tight">
+          No somos una agencia más.<br>
+          <span class="text-[#D8CFBC]">Somos tus tres socios tecnológicos.</span>
         </h2>
       </div>
 
-      <!-- Dos Tarjetas Apiladas (Sticky Stacking en Móvil y Desktop) -->
-      <div class="relative flex flex-col gap-8 pb-12">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
         
-        <!-- TARJETA 1: Desarrollo Web -->
-        <div class="stacked-service-card sticky top-24 sm:top-28 rounded-3xl p-8 sm:p-12 bg-[#120E24] border border-white/10 shadow-2xl shadow-black/80">
-          <div class="flex items-center justify-between gap-4 mb-6">
-            <span class="font-space font-bold text-3xl sm:text-4xl text-gradient">01</span>
-            <span class="text-xs font-mono uppercase tracking-widest text-[#9A96A8] bg-white/[0.04] px-3.5 py-1 rounded-full border border-white/10">
-              HIGH IMPACT WEB
-            </span>
-          </div>
-
-          <h3 class="font-space font-bold uppercase text-2xl sm:text-4xl text-white tracking-tight mb-4">
-            Desarrollo Web
-          </h3>
-
-          <p class="text-base sm:text-xl text-[#9A96A8] leading-relaxed mb-8">
-            Webs rápidas, modernas y diseñadas para vender.
+        <div class="p-6 sm:p-8 rounded-2xl bg-[#121017] border border-white/10 hover:border-[#D8CFBC]/40 transition-colors">
+          <span class="font-mono text-xs text-[#D8CFBC] block mb-4">[ 01 ]</span>
+          <h3 class="font-editorial font-bold text-xl text-white mb-2">Desarrollo Web</h3>
+          <p class="text-sm text-[#8E897E] leading-relaxed">
+            Código limpio, rendimiento extremo y arquitecturas modernas pensadas para convertir visitas en clientes reales.
           </p>
-
-          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-6 border-t border-white/10 text-xs sm:text-sm text-white/90">
-            <div class="flex items-center gap-2">
-              <span class="w-1.5 h-1.5 rounded-full bg-[#6B29A5]"></span>
-              <span>Páginas web optimizadas para móvil</span>
-            </div>
-            <div class="flex items-center gap-2">
-              <span class="w-1.5 h-1.5 rounded-full bg-[#6B29A5]"></span>
-              <span>Carga ultrarrápida y SEO técnico</span>
-            </div>
-            <div class="flex items-center gap-2">
-              <span class="w-1.5 h-1.5 rounded-full bg-[#6B29A5]"></span>
-              <span>Diseño moderno y profesional</span>
-            </div>
-            <div class="flex items-center gap-2">
-              <span class="w-1.5 h-1.5 rounded-full bg-[#6B29A5]"></span>
-              <span>Integración con WhatsApp y pasarelas</span>
-            </div>
-          </div>
         </div>
 
-        <!-- TARJETA 2: Publicidad y Estrategia -->
-        <div class="stacked-service-card sticky top-32 sm:top-36 rounded-3xl p-8 sm:p-12 bg-[#171131] border border-white/10 shadow-2xl shadow-black/80">
-          <div class="flex items-center justify-between gap-4 mb-6">
-            <span class="font-space font-bold text-3xl sm:text-4xl text-gradient">02</span>
-            <span class="text-xs font-mono uppercase tracking-widest text-sky-400 bg-sky-500/10 px-3.5 py-1 rounded-full border border-sky-500/20">
-              GROWTH & ADS
-            </span>
-          </div>
-
-          <h3 class="font-space font-bold uppercase text-2xl sm:text-4xl text-white tracking-tight mb-4">
-            Publicidad y Estrategia
-          </h3>
-
-          <p class="text-base sm:text-xl text-[#9A96A8] leading-relaxed mb-8">
-            Campañas que hacen que tu marca se vea y se recuerde.
+        <div class="p-6 sm:p-8 rounded-2xl bg-[#121017] border border-white/10 hover:border-[#D8CFBC]/40 transition-colors">
+          <span class="font-mono text-xs text-[#D8CFBC] block mb-4">[ 02 ]</span>
+          <h3 class="font-editorial font-bold text-xl text-white mb-2">Estrategia Publicitaria</h3>
+          <p class="text-sm text-[#8E897E] leading-relaxed">
+            Campañas precisas en Meta Ads y Google orientadas al retorno de inversión y al crecimiento sostenible de tu marca.
           </p>
+        </div>
 
-          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-6 border-t border-white/10 text-xs sm:text-sm text-white/90">
-            <div class="flex items-center gap-2">
-              <span class="w-1.5 h-1.5 rounded-full bg-[#3252E5]"></span>
-              <span>Estrategia de posicionamiento de marca</span>
-            </div>
-            <div class="flex items-center gap-2">
-              <span class="w-1.5 h-1.5 rounded-full bg-[#3252E5]"></span>
-              <span>Campañas en Meta Ads (Instagram y Facebook)</span>
-            </div>
-            <div class="flex items-center gap-2">
-              <span class="w-1.5 h-1.5 rounded-full bg-[#3252E5]"></span>
-              <span>Creativos publicitarios de alto impacto</span>
-            </div>
-            <div class="flex items-center gap-2">
-              <span class="w-1.5 h-1.5 rounded-full bg-[#3252E5]"></span>
-              <span>Optimización continua orientada a ventas</span>
-            </div>
-          </div>
+        <div class="p-6 sm:p-8 rounded-2xl bg-[#121017] border border-white/10 hover:border-[#D8CFBC]/40 transition-colors">
+          <span class="font-mono text-xs text-[#D8CFBC] block mb-4">[ 03 ]</span>
+          <h3 class="font-editorial font-bold text-xl text-white mb-2">Acompañamiento Directo</h3>
+          <p class="text-sm text-[#8E897E] leading-relaxed">
+            Sin intermediarios ni ejecutivos de cuenta. Hablas directamente con quienes construyen y ejecutan cada detalle.
+          </p>
         </div>
 
       </div>
 
     </div>
-
   </section>
 
   <!-- =========================================================================
-       FOOTER: Logo centrado, Botón de WhatsApp para contacto directo y Redes Sociales
+       SECCIÓN SERVICIOS
        ========================================================================= -->
-  <footer id="contacto" class="relative pt-24 pb-12 sm:pb-16 border-t border-white/10 bg-[#08070F] overflow-hidden">
+  <section id="servicios" class="py-24 sm:py-32 border-t border-white/5 relative">
+    <div class="w-full max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="mb-14">
+        <span class="font-mono text-xs uppercase tracking-widest text-[#D8CFBC] block mb-3">
+          [ CAPACIDADES ]
+        </span>
+        <h2 class="font-editorial font-extrabold uppercase text-3xl sm:text-5xl text-white tracking-tight">
+          NUESTROS SERVICIOS <span class="square-accent"></span>
+        </h2>
+      </div>
+
+      <div class="flex flex-col gap-8">
+        
+        <div class="p-8 sm:p-10 rounded-3xl bg-[#121017] border border-white/10 flex flex-col md:flex-row items-start md:items-center justify-between gap-6 hover:border-[#D8CFBC]/30 transition-colors">
+          <div class="max-w-xl">
+            <span class="font-mono text-xs text-[#D8CFBC] uppercase tracking-wider block mb-2">Servicio Principal // 01</span>
+            <h3 class="font-editorial font-bold text-2xl sm:text-3xl text-white mb-3">Diseño & Desarrollo Web a Medida</h3>
+            <p class="text-sm text-[#8E897E] leading-relaxed">
+              Sitios corporativos, landing pages de alta conversión, plataformas y catálogos optimizados para velocidad en celulares y computadoras.
+            </p>
+          </div>
+          <button onclick="openVintraWhatsApp('proyectos')" class="btn-sand px-6 py-3.5 rounded-full text-xs font-editorial uppercase tracking-wider shrink-0">
+            CONSULTAR WEB &rarr;
+          </button>
+        </div>
+
+        <div class="p-8 sm:p-10 rounded-3xl bg-[#121017] border border-white/10 flex flex-col md:flex-row items-start md:items-center justify-between gap-6 hover:border-[#D8CFBC]/30 transition-colors">
+          <div class="max-w-xl">
+            <span class="font-mono text-xs text-[#D8CFBC] uppercase tracking-wider block mb-2">Servicio Principal // 02</span>
+            <h3 class="font-editorial font-bold text-2xl sm:text-3xl text-white mb-3">Campañas de Publicidad Digital</h3>
+            <p class="text-sm text-[#8E897E] leading-relaxed">
+              Planificación, diseño creativo, segmentación y análisis de métricas en redes sociales y buscadores para atraer compradores reales.
+            </p>
+          </div>
+          <button onclick="openVintraWhatsApp('servicios')" class="btn-sand px-6 py-3.5 rounded-full text-xs font-editorial uppercase tracking-wider shrink-0">
+            CONSULTAR ADS &rarr;
+          </button>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       FOOTER (Estilo Marcus Lorenzet: Monumental, Sand Button, Contacto directo)
+       ========================================================================= -->
+  <footer id="contacto" class="relative pt-24 pb-16 sm:pb-20 border-t border-white/10 bg-[#07060A] overflow-hidden">
     
     <div class="w-full max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center flex flex-col items-center">
       
-      <!-- Headline editorial grande -->
-      <div class="footer-headline-wrap mb-12 text-center overflow-hidden">
-        <p class="font-mono text-xs uppercase tracking-widest text-[#9A96A8] mb-5">[ ¿LISTO PARA EL SIGUIENTE NIVEL? ]</p>
-        <h2 class="font-space font-bold uppercase leading-none tracking-tighter">
-          <span class="block text-5xl sm:text-7xl md:text-8xl lg:text-9xl text-white footer-line-1">HABLEMOS</span>
-          <span class="block text-5xl sm:text-7xl md:text-8xl lg:text-9xl bg-gradient-to-r from-[#A855F7] via-[#6B29A5] to-[#3252E5] bg-clip-text text-transparent footer-line-2">DE TU MARCA</span>
+      <div class="footer-giant-title mb-12 text-center">
+        <p class="font-mono text-xs uppercase tracking-widest text-[#D8CFBC] mb-5">[ ¿LISTO PARA EL SIGUIENTE NIVEL? ]</p>
+        <h2 class="font-editorial font-extrabold uppercase leading-[0.9] tracking-tighter text-4xl sm:text-7xl md:text-8xl lg:text-9xl text-[#EAE5D9]">
+          HABLEMOS DE<br>
+          <span class="text-[#D8CFBC] flex items-center justify-center gap-3">TU MARCA <span class="square-accent"></span></span>
         </h2>
       </div>
 
-      <!-- Logo Centrado (recursos/logo-blanco.png) -->
-      <div class="w-20 h-20 sm:w-24 sm:h-24 rounded-full overflow-hidden flex items-center justify-center bg-black/60 border border-white/10 mb-6 shadow-xl shadow-purple-950/40">
-        <img src="recursos/logo-blanco.png" alt="Vintra Logo" class="w-full h-full object-cover mix-blend-screen scale-110">
-      </div>
-
-      <!-- Nombre y Slogan Centrado -->
-      <h3 class="font-space font-bold uppercase text-2xl sm:text-3xl tracking-tight text-white mb-2">
-        VINTRA
-      </h3>
-      <p class="text-xs sm:text-sm font-mono tracking-widest text-[#9A96A8] uppercase mb-8">
-        Tecnología que potencia tu marca
-      </p>
-
-      <!-- Botón Directo de WhatsApp en el Footer -->
-      <div class="mb-12">
-        <button onclick="openVintraWhatsApp('general')" class="wa-btn-glow group inline-flex items-center justify-center gap-3 px-8 sm:px-10 py-5 rounded-2xl bg-vintra-gradient hover:bg-vintra-gradient-hover text-white font-space font-bold uppercase text-sm sm:text-base tracking-wider transition-all duration-300 shadow-[0_0_35px_rgba(107,41,165,0.4)] hover:-translate-y-1">
-          <svg class="w-5 h-5 sm:w-6 sm:h-6 text-white group-hover:scale-110 transition-transform" fill="currentColor" viewBox="0 0 24 24">
+      <!-- Botón Sand Principal de WhatsApp -->
+      <div class="mb-14">
+        <button onclick="openVintraWhatsApp('general')" class="btn-sand px-9 sm:px-12 py-5 sm:py-6 rounded-full text-sm sm:text-base uppercase tracking-wider flex items-center gap-3 shadow-2xl">
+          <svg class="w-5 h-5 sm:w-6 sm:h-6 fill-current shrink-0" viewBox="0 0 24 24">
             <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.771-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.007c.106.005.249-.04.39.299.144.347.491 1.199.534 1.286.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.963 1.199.662.59 1.221.774 1.394.86.174.086.275.072.376-.043.101-.116.433-.506.549-.68.116-.173.231-.145.39-.086.159.058 1.011.477 1.184.564.173.086.289.13.332.202.043.072.043.419-.101.824z"/>
           </svg>
-          <span>CHATEAR POR WHATSAPP</span>
+          <span>INICIAR CONVERSACIÓN POR WHATSAPP</span>
         </button>
       </div>
 
-      <!-- Enlaces a Redes Sociales -->
-      <div class="flex flex-wrap items-center justify-center gap-6 sm:gap-8 pb-12 border-b border-white/10 w-full text-xs font-mono uppercase tracking-wider text-[#9A96A8]">
+      <!-- Enlaces Redes Sociales y Contacto -->
+      <div class="flex flex-wrap items-center justify-center gap-6 sm:gap-8 pb-12 border-b border-white/10 w-full text-xs font-mono uppercase tracking-wider text-[#8E897E]">
         <a href="https://www.instagram.com/vintra_publicidad/" target="_blank" rel="noopener" class="hover:text-white transition-colors">
           INSTAGRAM &rarr;
         </a>
         <a href="https://linkedin.com" target="_blank" rel="noopener" class="hover:text-white transition-colors">
           LINKEDIN &rarr;
-        </a>
-        <a href="https://x.com" target="_blank" rel="noopener" class="hover:text-white transition-colors">
-          X / TWITTER &rarr;
         </a>
         <a href="mailto:contacto@vintra.agency" class="hover:text-white transition-colors">
           EMAIL DIRECTO &rarr;
@@ -649,9 +598,9 @@
       </div>
 
       <!-- Copyright -->
-      <div class="pt-8 w-full flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[#9A96A8]">
+      <div class="pt-8 w-full flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[#8E897E]">
         <p>&copy; 2026 VINTRA. TODOS LOS DERECHOS RESERVADOS.</p>
-        <a href="#hero" class="text-white hover:text-[#A855F7] font-mono transition-colors">
+        <a href="#hero" class="text-[#D8CFBC] hover:text-white font-mono transition-colors">
           VOLVER ARRIBA &uarr;
         </a>
       </div>
@@ -661,30 +610,35 @@
   </footer>
 
   <!-- =========================================================================
-       BOTÓN FLOTANTE PERMANENTE DE WHATSAPP (ACCESO RÁPIDO MÓVIL Y DESKTOP)
+       FLOATING ACTION DOCK (Inspirado en la barra fija "Let's Talk" de Marcus Lorenzet)
+       Aparece al hacer scroll y se mantiene flotante en el centro inferior
        ========================================================================= -->
-  <div class="fixed bottom-5 right-5 sm:bottom-6 sm:right-6 z-40">
-    <button onclick="openVintraWhatsApp('general')" class="group relative flex items-center justify-center w-12 h-12 sm:w-auto sm:px-5 sm:py-3.5 rounded-full bg-vintra-gradient hover:bg-vintra-gradient-hover text-white shadow-[0_4px_25px_rgba(50,82,229,0.5)] hover:shadow-[0_6px_35px_rgba(107,41,165,0.7)] hover:scale-105 transition-all duration-300 border border-white/20" aria-label="Contactar a Vintra por WhatsApp">
+  <div id="floating-dock" class="fixed bottom-5 sm:bottom-6 left-1/2 -translate-x-1/2 z-40 transition-all duration-500 opacity-0 translate-y-8 pointer-events-none">
+    <button onclick="openVintraWhatsApp('general')" class="flex items-center gap-3 px-4 sm:px-6 py-2.5 sm:py-3 rounded-full bg-[#16141D]/90 hover:bg-[#1E1B26] border border-white/15 backdrop-blur-xl shadow-[0_12px_40px_rgba(0,0,0,0.6)] group transition-all duration-300 hover:scale-105" aria-label="Contactar a Vintra por WhatsApp">
       
-      <!-- Anillo pulsante -->
-      <span class="absolute inset-0 rounded-full border border-emerald-400 opacity-60 animate-ping pointer-events-none"></span>
+      <!-- Mini avatar/logo con estado activo -->
+      <div class="relative w-8 h-8 rounded-full overflow-hidden bg-black/60 border border-white/20 flex items-center justify-center shrink-0">
+        <img src="recursos/logo-blanco.png" alt="Vintra" class="w-full h-full object-cover mix-blend-screen scale-110">
+        <span class="status-beacon-dot absolute bottom-0 right-0 w-2.5 h-2.5 rounded-full bg-emerald-400 ring-2 ring-[#16141D]"></span>
+      </div>
 
-      <!-- Icono de WhatsApp -->
-      <svg class="w-5 h-5 sm:w-6 sm:h-6 text-emerald-400 fill-current shrink-0" viewBox="0 0 24 24">
-        <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.771-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.007c.106.005.249-.04.39.299.144.347.491 1.199.534 1.286.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.963 1.199.662.59 1.221.774 1.394.86.174.086.275.072.376-.043.101-.116.433-.506.549-.68.116-.173.231-.145.39-.086.159.058 1.011.477 1.184.564.173.086.289.13.332.202.043.072.043.419-.101.824z"/>
-      </svg>
-      
-      <span class="hidden sm:inline-block font-space font-bold uppercase text-xs tracking-wider sm:ml-2">
-        CHATEAR AHORA
+      <!-- Texto principal -->
+      <span class="font-editorial font-bold text-xs sm:text-sm text-[#EAE5D9] tracking-wide uppercase group-hover:text-white transition-colors">
+        HABLEMOS DE TU PROYECTO
+      </span>
+
+      <!-- Mini botón Sand -->
+      <span class="btn-sand px-3 py-1 rounded-full text-[10px] sm:text-xs tracking-wider flex items-center gap-1 font-mono uppercase">
+        <span>WHATSAPP</span> &rarr;
       </span>
     </button>
   </div>
 
-  <!-- Scripts: GSAP + ScrollTrigger + Lenis + Main Logic -->
+  <!-- Scripts: GSAP + ScrollTrigger + Lenis Smooth Scroll + Engine -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
   <script src="https://unpkg.com/lenis@1.1.9/dist/lenis.min.js"></script>
   <script src="js/app.js"></script>
-
+  <script src="js/animations.js"></script>
 </body>
 </html>
